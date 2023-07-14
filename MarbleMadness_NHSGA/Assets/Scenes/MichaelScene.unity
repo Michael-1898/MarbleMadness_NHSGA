@@ -428,6 +428,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1055637520 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5106586223276465877, guid: d3c43af6cba7550469294a421c18e11e, type: 3}
+  m_PrefabInstance: {fileID: 5106586222309400261}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1112885270
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,6 +446,7 @@ GameObject:
   - component: {fileID: 1112885272}
   - component: {fileID: 1112885271}
   - component: {fileID: 1112885276}
+  - component: {fileID: 1112885277}
   m_Layer: 0
   m_Name: Slinky
   m_TagString: Untagged
@@ -522,7 +528,8 @@ Transform:
   m_LocalPosition: {x: 0.4231925, y: 0, z: -0.4772849}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1852796636}
   m_Father: {fileID: 1846887605}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -542,6 +549,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1112885277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112885270}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474335f72a9d19445a228b5f60994c04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1112885276}
+  SlinkyMover: {fileID: 1846887604}
+  aggroRadius: 7
+  attkCooldown: 1
+  jumpForce: 10
+  playerTransform: {fileID: 1055637520}
+  lateralAttkSpeed: 1.5
+  groundCheck: {fileID: 1852796636}
+  groundCheckRadius: 0.3
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 16
 --- !u!1 &1570030177
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,8 +616,8 @@ GameObject:
   - component: {fileID: 1773081068}
   - component: {fileID: 1773081067}
   - component: {fileID: 1773081066}
-  m_Layer: 0
-  m_Name: Cube
+  m_Layer: 4
+  m_Name: floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -663,7 +694,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1773081065}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.04, z: 0}
   m_LocalScale: {x: 24.86168, y: 0.0654609, z: 24.676964}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -919,6 +950,39 @@ MonoBehaviour:
   - {fileID: 86111387}
   Slinky: {fileID: 1112885270}
   speed: 2
+  playerTransform: {fileID: 1055637520}
+  aggroRadius: 7
+--- !u!1 &1852796635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1852796636}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1852796636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852796635}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1112885274}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5106586222309400261
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -936,7 +1000,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5106586223276465877, guid: d3c43af6cba7550469294a421c18e11e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -3.2
       objectReference: {fileID: 0}
     - target: {fileID: 5106586223276465877, guid: d3c43af6cba7550469294a421c18e11e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -944,7 +1008,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5106586223276465877, guid: d3c43af6cba7550469294a421c18e11e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -3.2
       objectReference: {fileID: 0}
     - target: {fileID: 5106586223276465877, guid: d3c43af6cba7550469294a421c18e11e, type: 3}
       propertyPath: m_LocalRotation.w
