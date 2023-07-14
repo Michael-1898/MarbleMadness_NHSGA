@@ -5,11 +5,14 @@ using UnityEngine.InputSystem;
 
 public class PlayerMove : MonoBehaviour
 {
+    //components
+    [SerializeField] Camera cam;
     [SerializeField] Rigidbody rb;
+    
+    //movement
     private Vector3 moveRawInput;
     private Vector3 moveDirection;
     [SerializeField] float moveForce;
-    [SerializeField] Camera cam;
 
     // Start is called before the first frame update
     void Start()
@@ -20,8 +23,8 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveDirection = cam.transform.TransformDirection(moveRawInput);
-        moveDirection = new Vector3(moveDirection.x, 0, moveDirection.z);
+        moveDirection = cam.transform.TransformDirection(moveRawInput); //set move direction relative to camera veiw
+        moveDirection = new Vector3(moveDirection.x, 0, moveDirection.z); //stop move direction from movign player upward
     }
 
     void FixedUpdate()

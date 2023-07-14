@@ -4,18 +4,26 @@ using UnityEngine;
 
 public class SlinkyMovement : MonoBehaviour
 {
+    //movement
     [SerializeField] private Transform[] points;
     [SerializeField] private GameObject Slinky;
     [SerializeField] private float speed;
 
+    //misc
     private Rigidbody rb;
 
+    //aggro
+    [SerializeField] private Transform playerTransform;
+    [SerializeField] float aggroRadius;
+
+    //targeting
     private Vector3 currentTarget;
     private int currentTargetIndex = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        Slinky.GetComponent<SlinkyAttack>().enabled = false;
         SetNextTarget();
         rb = Slinky.GetComponent<Rigidbody>();
     }
@@ -23,12 +31,18 @@ public class SlinkyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //if player is in aggro range go to attack behavior
+        if(Vector3.Distance(rb.position, playerTransform.position) < aggroRadius) {
+            Slinky.GetComponent<SlinkyAttack>().enabled = true;
+        }
     }
 
     private void FixedUpdate()
     {
+        //move towards current target position
         rb.MovePosition(Vector3.MoveTowards(rb.position, currentTarget, speed * Time.fixedDeltaTime));
+
+        //if reached current target, set next target
         if (Vector3.Distance(rb.position, currentTarget) < 0.5f)
         {
             SetNextTarget();
@@ -43,5 +57,10 @@ public class SlinkyMovement : MonoBehaviour
             currentTargetIndex = 0;
         }
         currentTarget = points[currentTargetIndex].position;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(Slinky.transform.position, aggroRadius);
     }
 }
