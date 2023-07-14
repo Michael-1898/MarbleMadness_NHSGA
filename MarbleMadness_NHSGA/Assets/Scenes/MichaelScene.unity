@@ -547,7 +547,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1112885277
 MonoBehaviour:
@@ -567,9 +567,9 @@ MonoBehaviour:
   attkCooldown: 1
   jumpForce: 10
   playerTransform: {fileID: 1055637520}
-  lateralAttkSpeed: 1.5
+  lateralAttkSpeed: 100
   groundCheck: {fileID: 1852796636}
-  groundCheckRadius: 0.3
+  groundCheckRadius: 0.2
   groundMask:
     serializedVersion: 2
     m_Bits: 16
