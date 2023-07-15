@@ -525,8 +525,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1112885270}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.4231925, y: 0, z: -0.4772849}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.4231925, y: 0.1, z: -0.4772849}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1852796636}
@@ -567,7 +567,7 @@ MonoBehaviour:
   attkCooldown: 1
   jumpForce: 10
   playerTransform: {fileID: 1055637520}
-  lateralAttkSpeed: 100
+  lateralAttkSpeed: 350
   groundCheck: {fileID: 1852796636}
   groundCheckRadius: 0.2
   groundMask:
@@ -949,7 +949,7 @@ MonoBehaviour:
   - {fileID: 1570030178}
   - {fileID: 86111387}
   Slinky: {fileID: 1112885270}
-  speed: 2
+  speed: 3
   playerTransform: {fileID: 1055637520}
   aggroRadius: 7
 --- !u!1 &1852796635

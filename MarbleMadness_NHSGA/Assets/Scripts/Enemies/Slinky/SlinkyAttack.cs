@@ -32,6 +32,11 @@ public class SlinkyAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+    }
+
+    void OnEnable()
+    {
         SlinkyMover.GetComponent<SlinkyMovement>().enabled = false;
     }
 
@@ -79,7 +84,7 @@ public class SlinkyAttack : MonoBehaviour
     {
         //laterally move towards player
         lateralDirection = (playerTransform.position - transform.position).normalized;
-        rb.velocity = new Vector3(lateralDirection.x * lateralAttkSpeed * Time.deltaTime, rb.velocity.y, lateralDirection.y * lateralAttkSpeed * Time.deltaTime);
+        rb.velocity = new Vector3(lateralDirection.x * lateralAttkSpeed * Time.deltaTime, rb.velocity.y, lateralDirection.z * lateralAttkSpeed * Time.deltaTime);
     }
 
     private void GroundCheck()

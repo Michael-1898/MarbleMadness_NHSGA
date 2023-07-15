@@ -130,7 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   rb: {fileID: 5106586223276465865}
-  moveForce: 1.5
+  moveForce: 1.2
 --- !u!114 &5106586223276465876
 MonoBehaviour:
   m_ObjectHideFlags: 0

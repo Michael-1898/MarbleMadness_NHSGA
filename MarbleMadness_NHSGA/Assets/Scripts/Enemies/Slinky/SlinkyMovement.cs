@@ -23,9 +23,13 @@ public class SlinkyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rb = Slinky.GetComponent<Rigidbody>();
+    }
+
+    void OnEnable()
+    {
         Slinky.GetComponent<SlinkyAttack>().enabled = false;
         SetNextTarget();
-        rb = Slinky.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -35,18 +39,18 @@ public class SlinkyMovement : MonoBehaviour
         if(Vector3.Distance(rb.position, playerTransform.position) < aggroRadius) {
             Slinky.GetComponent<SlinkyAttack>().enabled = true;
         }
+
+        //if reached current target, set next target
+        if (Vector3.Distance(rb.position, currentTarget) < 0.8f)
+        {
+            SetNextTarget();
+        }
     }
 
     private void FixedUpdate()
     {
         //move towards current target position
         rb.MovePosition(Vector3.MoveTowards(rb.position, currentTarget, speed * Time.fixedDeltaTime));
-
-        //if reached current target, set next target
-        if (Vector3.Distance(rb.position, currentTarget) < 0.5f)
-        {
-            SetNextTarget();
-        }
     }
 
     private void SetNextTarget()
