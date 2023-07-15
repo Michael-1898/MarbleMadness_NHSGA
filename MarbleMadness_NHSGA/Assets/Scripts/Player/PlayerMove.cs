@@ -13,7 +13,6 @@ public class PlayerMove : MonoBehaviour
     private Vector3 moveRawInput;
     private Vector3 moveDirection;
     [SerializeField] float moveForce;
-    [SerializeField] Camera cam;
     private bool hasBeenInGoal = false;
 
     // Start is called before the first frame update
