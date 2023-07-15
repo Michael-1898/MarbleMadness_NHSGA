@@ -20,7 +20,7 @@ public class CheckpointManager : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        if(col.gameObject.CompareTag("Ground")) {
+        if(col.gameObject.CompareTag("ground")) {
             checkpoint.transform.position = new Vector3(col.gameObject.transform.position.x, col.gameObject.transform.position.y + 0.7f, col.gameObject.transform.position.z);
         }
     }
