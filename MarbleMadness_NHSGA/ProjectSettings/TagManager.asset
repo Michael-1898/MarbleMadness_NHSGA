@@ -5,11 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - ignoreCollide
+  - goal
+  - ground
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 
