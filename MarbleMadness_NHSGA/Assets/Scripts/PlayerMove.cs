@@ -10,6 +10,7 @@ public class PlayerMove : MonoBehaviour
     private Vector3 moveDirection;
     [SerializeField] float moveForce;
     [SerializeField] Camera cam;
+    private bool hasBeenInGoal = false;
 
     // Start is called before the first frame update
     void Start()
@@ -32,5 +33,25 @@ public class PlayerMove : MonoBehaviour
     void OnMove(InputValue value)
     {
         moveRawInput = new Vector3(value.Get<Vector2>().x, 0, value.Get<Vector2>().y);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "goal")
+        {
+            // Allow the ball to go to travel a little into the platform before clearing its velocity.
+            if (!hasBeenInGoal)
+            {
+                Invoke("GoalReached", 1);
+                hasBeenInGoal = true;
+            }
+            else GoalReached();
+        }
+    }
+
+    void GoalReached()
+    {
+        rb.velocity = Vector3.zero;
+        rb.AddForce(Vector3.up * 10, ForceMode.VelocityChange);
     }
 }
