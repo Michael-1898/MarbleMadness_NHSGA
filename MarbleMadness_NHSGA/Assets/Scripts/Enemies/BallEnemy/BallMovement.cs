@@ -26,5 +26,7 @@ public class BallMovement : MonoBehaviour
     {
         directionTowardsCenter = (centerOfMovement.position - transform.position).normalized;
         rb.AddForce(directionTowardsCenter * moveForce, ForceMode.Impulse);
+
+        
     }
 }
