@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1739027935339982719}
   - component: {fileID: 3426569871727829210}
   - component: {fileID: 606130442897478672}
+  - component: {fileID: 413034450507214390}
   m_Layer: 0
   m_Name: Ramp_Half
   m_TagString: Untagged
@@ -83,3 +84,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &413034450507214390
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398812012067943877}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2935315524337005697, guid: 42ead744de2469d468163ab15ce009d6, type: 3}
