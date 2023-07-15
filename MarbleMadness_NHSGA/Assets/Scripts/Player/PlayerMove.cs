@@ -15,6 +15,9 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] float moveForce;
     private bool hasBeenInGoal = false;
 
+    private float yOnExit = 0;
+    private bool isInAir = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +52,28 @@ public class PlayerMove : MonoBehaviour
                 hasBeenInGoal = true;
             }
             else GoalReached();
+        }
+        else if (collision.gameObject.tag == "ground")
+        {
+            if (isInAir)
+            {
+                isInAir = false;
+                float distance = Mathf.Abs(gameObject.transform.position.y - yOnExit);
+                if (distance > 3 && distance < 5) Debug.Log("dizzy");
+                else if (distance > 5) Debug.Log("crack");
+            } else
+            {
+                yOnExit = gameObject.transform.position.y;
+            }
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "ground")
+        {
+            isInAir = true;
+            yOnExit = gameObject.transform.position.y;
         }
     }
 
