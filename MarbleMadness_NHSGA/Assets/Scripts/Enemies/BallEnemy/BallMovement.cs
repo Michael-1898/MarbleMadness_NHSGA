@@ -25,8 +25,14 @@ public class BallMovement : MonoBehaviour
     void Update()
     {
         directionTowardsCenter = (centerOfMovement.position - transform.position).normalized;
+        print(directionTowardsCenter);
         rb.AddForce(directionTowardsCenter * moveForce, ForceMode.Impulse);
 
+        
+    }
+
+    void FindPerpendicular()
+    {
         
     }
 }
