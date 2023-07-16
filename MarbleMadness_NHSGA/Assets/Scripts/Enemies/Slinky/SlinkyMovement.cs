@@ -13,7 +13,7 @@ public class SlinkyMovement : MonoBehaviour
     private Rigidbody rb;
 
     //aggro
-    [SerializeField] private Transform playerTransform;
+    private Transform playerTransform;
     [SerializeField] float aggroRadius;
 
     //targeting
@@ -24,6 +24,7 @@ public class SlinkyMovement : MonoBehaviour
     void Start()
     {
         rb = Slinky.GetComponent<Rigidbody>();
+        playerTransform = GameObject.FindWithTag("Player").transform;
     }
 
     void OnEnable()
@@ -41,7 +42,7 @@ public class SlinkyMovement : MonoBehaviour
         }
 
         //if reached current target, set next target
-        if (Vector3.Distance(rb.position, currentTarget) < 0.8f)
+        if (Vector3.Distance(rb.position, currentTarget) < 1)
         {
             SetNextTarget();
         }

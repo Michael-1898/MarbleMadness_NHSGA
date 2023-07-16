@@ -5,6 +5,7 @@ using UnityEngine;
 public class CheckpointManager : MonoBehaviour
 {
     [SerializeField] GameObject checkpoint;
+    [SerializeField] Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
@@ -23,5 +24,15 @@ public class CheckpointManager : MonoBehaviour
         if(col.gameObject.CompareTag("ground")) {
             checkpoint.transform.position = new Vector3(col.gameObject.transform.position.x, col.gameObject.transform.position.y + 0.7f, col.gameObject.transform.position.z);
         }
+    }
+
+    public void SendToCheckPoint()
+    {
+        //play death animation and sound or whatever
+        
+        //send back to checkpoint once animation/sound has played
+        transform.position = checkpoint.transform.position;
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
     }
 }

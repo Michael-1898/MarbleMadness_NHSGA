@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 3426569871727829210}
   - component: {fileID: 606130442897478672}
   - component: {fileID: 413034450507214390}
-  m_Layer: 0
+  - component: {fileID: -856023315188214213}
+  m_Layer: 3
   m_Name: Ramp_Half
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,3 +99,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2935315524337005697, guid: 42ead744de2469d468163ab15ce009d6, type: 3}
+--- !u!54 &-856023315188214213
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398812012067943877}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

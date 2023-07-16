@@ -15,7 +15,7 @@ public class SlinkyAttack : MonoBehaviour
     [SerializeField] float attkCooldown;
     private float attkTimer;
     [SerializeField] float jumpForce;
-    [SerializeField] Transform playerTransform;
+    private Transform playerTransform;
     private Vector3 attkDirection;
     [SerializeField] float lateralAttkSpeed;
     private Vector3 lateralDirection;
@@ -32,7 +32,7 @@ public class SlinkyAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerTransform = GameObject.FindWithTag("Player").transform;
     }
 
     void OnEnable()
@@ -99,6 +99,11 @@ public class SlinkyAttack : MonoBehaviour
         if(groundedTimer > 0) {
             groundedTimer -= Time.deltaTime;
         }
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        //send player to checkpoint
     }
 
     private void OnDrawGizmosSelected()

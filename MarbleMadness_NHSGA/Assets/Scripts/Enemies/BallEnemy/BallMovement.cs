@@ -5,11 +5,15 @@ using UnityEngine;
 public class BallMovement : MonoBehaviour
 {
     [SerializeField] Rigidbody rb;
+    [SerializeField] float gizmoRadius;
 
     //movement
-    [SerializeField] float moveForce;
+    [SerializeField] float xForce;
+    [SerializeField] float zForce;
     [SerializeField] Transform centerOfMovement;
-    private Vector3 directionTowardsCenter;
+    private Vector3 moveDirection;
+    [SerializeField] float xBound;
+    [SerializeField] float zBound;
 
     //aggro
     [SerializeField] float aggroRadius;
@@ -21,12 +25,72 @@ public class BallMovement : MonoBehaviour
         playerPosition = GameObject.FindWithTag("Player").transform;
     }
 
+    void OnEnable()
+    {
+        this.gameObject.GetComponent<BallAttack>().enabled = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        directionTowardsCenter = (centerOfMovement.position - transform.position).normalized;
-        rb.AddForce(directionTowardsCenter * moveForce, ForceMode.Impulse);
+        CheckBounds();
 
-        
+        CheckAggro();
+
+        moveDirection = new Vector3(xForce, 0, zForce);
+    }
+
+    void FixedUpdate()
+    {
+        rb.AddForce(moveDirection, ForceMode.Impulse);
+    }
+
+    void CheckBounds()
+    {
+        if(transform.position.x >= centerOfMovement.position.x + xBound) {
+            //set x dir neg
+            if(xForce > 0) {
+                xForce *= -1;
+            }
+        }
+        if(transform.position.x <= centerOfMovement.position.x - xBound) {
+            //set x dir pos
+            if(xForce < 0) {
+                xForce *= -1;
+            }
+        }
+
+        if(transform.position.z >= centerOfMovement.position.z + zBound) {
+            //set z dir neg
+            if(zForce > 0) {
+                zForce *= -1;
+            }
+        }
+        if(transform.position.z <= centerOfMovement.position.z - zBound) {
+            //set z dir pos
+            if(zForce < 0) {
+                zForce *= -1;
+            }
+        }
+    }
+
+    void CheckAggro()
+    {
+        if(Vector3.Distance(transform.position, playerPosition.position) < aggroRadius) {
+            //enable attack script
+            this.gameObject.GetComponent<BallAttack>().enabled = true;
+        }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+
+        Gizmos.DrawWireSphere(new Vector3(centerOfMovement.position.x + xBound, centerOfMovement.position.y, centerOfMovement.position.z), gizmoRadius);
+        Gizmos.DrawWireSphere(new Vector3(centerOfMovement.position.x - xBound, centerOfMovement.position.y, centerOfMovement.position.z), gizmoRadius);
+        Gizmos.DrawWireSphere(new Vector3(centerOfMovement.position.x, centerOfMovement.position.y, centerOfMovement.position.z + zBound), gizmoRadius);
+        Gizmos.DrawWireSphere(new Vector3(centerOfMovement.position.x, centerOfMovement.position.y, centerOfMovement.position.z - zBound), gizmoRadius);
+
+        Gizmos.DrawWireSphere(transform.position, aggroRadius);
     }
 }

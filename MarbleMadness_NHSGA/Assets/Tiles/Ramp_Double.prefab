@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 2314433865767461755}
   - component: {fileID: 574897381039200177}
   - component: {fileID: 3815259794725649456}
-  m_Layer: 0
+  - component: {fileID: 7731657506761062782}
+  m_Layer: 3
   m_Name: Ramp_Double
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,3 +99,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3928134125552038280, guid: f49f7c41d682b9540bc54fbfeb41e435, type: 3}
+--- !u!54 &7731657506761062782
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088137986604234340}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

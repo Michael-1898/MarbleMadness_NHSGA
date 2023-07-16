@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +9,7 @@ public class PlayerMove : MonoBehaviour
     //components
     [SerializeField] Camera cam;
     [SerializeField] Rigidbody rb;
+    public int gravity;
     
     //movement
     private Vector3 moveRawInput;
@@ -16,7 +18,7 @@ public class PlayerMove : MonoBehaviour
     private bool hasBeenInGoal = false;
 
     private float yOnExit = 0;
-    private bool isInAir = false;
+    private int numOfColliders = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +35,7 @@ public class PlayerMove : MonoBehaviour
 
     void FixedUpdate()
     {
+        //rb.AddForce(Vector3.down * gravity * Time.deltaTime, ForceMode.Acceleration);
         rb.AddForce(moveDirection * moveForce, ForceMode.Impulse);
     }
 
@@ -45,7 +48,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (collision.gameObject.tag == "goal")
         {
-            // Allow the ball to go to travel a little into the platform before clearing its velocity.
+            // Allow the ball to travel a little into the platform before clearing its velocity.
             if (!hasBeenInGoal)
             {
                 Invoke("GoalReached", 1);
@@ -53,18 +56,17 @@ public class PlayerMove : MonoBehaviour
             }
             else GoalReached();
         }
+
         else if (collision.gameObject.tag == "ground")
         {
-            if (isInAir)
+            numOfColliders += 1;
+            if (numOfColliders == 1)
             {
-                isInAir = false;
-                float distance = Mathf.Abs(gameObject.transform.position.y - yOnExit);
+                float distance = yOnExit - gameObject.transform.position.y;
                 if (distance > 3 && distance < 5) Debug.Log("dizzy");
                 else if (distance > 5) Debug.Log("crack");
-            } else
-            {
-                yOnExit = gameObject.transform.position.y;
             }
+            yOnExit = gameObject.transform.position.y;
         }
     }
 
@@ -72,7 +74,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (collision.gameObject.tag == "ground")
         {
-            isInAir = true;
+            numOfColliders -= 1;
             yOnExit = gameObject.transform.position.y;
         }
     }
