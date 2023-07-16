@@ -51,8 +51,6 @@ public class SlinkyMovement : MonoBehaviour
     {
         //move towards current target position
         rb.MovePosition(Vector3.MoveTowards(rb.position, currentTarget, speed * Time.fixedDeltaTime));
-        print(currentTargetIndex);
-        print(currentTarget);
     }
 
     private void SetNextTarget()
