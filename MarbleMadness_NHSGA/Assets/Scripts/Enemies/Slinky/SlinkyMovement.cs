@@ -41,7 +41,7 @@ public class SlinkyMovement : MonoBehaviour
         }
 
         //if reached current target, set next target
-        if (Vector3.Distance(rb.position, currentTarget) < 0.8f)
+        if (Vector3.Distance(rb.position, currentTarget) < 1)
         {
             SetNextTarget();
         }
@@ -51,6 +51,8 @@ public class SlinkyMovement : MonoBehaviour
     {
         //move towards current target position
         rb.MovePosition(Vector3.MoveTowards(rb.position, currentTarget, speed * Time.fixedDeltaTime));
+        print(currentTargetIndex);
+        print(currentTarget);
     }
 
     private void SetNextTarget()

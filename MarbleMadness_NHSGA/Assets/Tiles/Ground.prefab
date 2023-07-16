@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 6641911590400364660}
   - component: {fileID: 8919440837684618430}
   - component: {fileID: 3307315862466727039}
-  m_Layer: 0
+  - component: {fileID: 1688423668147811172}
+  m_Layer: 3
   m_Name: Ground
   m_TagString: ground
   m_Icon: {fileID: 0}
@@ -98,3 +99,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1453043773871479701, guid: b46bb11053528bf4c80a63a38b5acd66, type: 3}
+--- !u!54 &1688423668147811172
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6974039937228359019}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
