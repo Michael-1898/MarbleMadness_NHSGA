@@ -7,6 +7,8 @@ public class CheckpointManager : MonoBehaviour
     [SerializeField] GameObject checkpoint;
     [SerializeField] Rigidbody rb;
 
+    [SerializeField] AudioSource respawnSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,7 @@ public class CheckpointManager : MonoBehaviour
     public void SendToCheckPoint()
     {
         //play death animation and sound or whatever
+        respawnSound.Play();
         
         //send back to checkpoint once animation/sound has played
         transform.position = checkpoint.transform.position;

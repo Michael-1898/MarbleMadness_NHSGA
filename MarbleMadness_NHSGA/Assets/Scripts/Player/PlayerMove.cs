@@ -9,6 +9,10 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] Camera cam;
     [SerializeField] Rigidbody rb;
     public int gravity;
+
+    //sound
+    [SerializeField] AudioSource marbleRoll;
+    private bool rollSoundPlaying;
     
     //movement
     private Vector3 moveRawInput;
@@ -30,6 +34,17 @@ public class PlayerMove : MonoBehaviour
     {
         moveDirection = cam.transform.TransformDirection(moveRawInput); //set move direction relative to camera veiw
         moveDirection = new Vector3(moveDirection.x, 0, moveDirection.z); //stop move direction from movign player upward
+        
+
+        if(rb.velocity != Vector3.zero && numOfColliders > 0 && !rollSoundPlaying) {
+            marbleRoll.Play();
+            rollSoundPlaying = true;
+        }
+
+        if((rb.velocity == Vector3.zero || numOfColliders < 1) && rollSoundPlaying) {
+            marbleRoll.Stop();
+            rollSoundPlaying = false;
+        }
     }
 
     void FixedUpdate()
