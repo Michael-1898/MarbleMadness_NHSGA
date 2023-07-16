@@ -182,8 +182,7 @@ MonoBehaviour:
   - {fileID: 7630612625929641126}
   Slinky: {fileID: 7630612627023011883}
   speed: 3
-  playerTransform: {fileID: 0}
-  aggroRadius: 7
+  aggroRadius: 6
 --- !u!1 &7630612626286511846
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,10 +344,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 7630612627023011873}
   SlinkyMover: {fileID: 7630612626280623241}
-  aggroRadius: 7
+  aggroRadius: 6
   attkCooldown: 1
   jumpForce: 10
-  playerTransform: {fileID: 0}
   lateralAttkSpeed: 350
   groundCheck: {fileID: 7630612626286511841}
   groundCheckRadius: 0.2

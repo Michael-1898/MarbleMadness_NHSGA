@@ -25,13 +25,23 @@ public class BallMovement : MonoBehaviour
         playerPosition = GameObject.FindWithTag("Player").transform;
     }
 
+    void OnEnable()
+    {
+        this.gameObject.GetComponent<BallAttack>().enabled = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
         CheckBounds();
 
-        moveDirection = new Vector3(xForce, 0, zForce);
+        CheckAggro();
 
+        moveDirection = new Vector3(xForce, 0, zForce);
+    }
+
+    void FixedUpdate()
+    {
         rb.AddForce(moveDirection, ForceMode.Impulse);
     }
 
@@ -64,6 +74,14 @@ public class BallMovement : MonoBehaviour
         }
     }
 
+    void CheckAggro()
+    {
+        if(Vector3.Distance(transform.position, playerPosition.position) < aggroRadius) {
+            //enable attack script
+            this.gameObject.GetComponent<BallAttack>().enabled = true;
+        }
+    }
+
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
@@ -72,5 +90,7 @@ public class BallMovement : MonoBehaviour
         Gizmos.DrawWireSphere(new Vector3(centerOfMovement.position.x - xBound, centerOfMovement.position.y, centerOfMovement.position.z), gizmoRadius);
         Gizmos.DrawWireSphere(new Vector3(centerOfMovement.position.x, centerOfMovement.position.y, centerOfMovement.position.z + zBound), gizmoRadius);
         Gizmos.DrawWireSphere(new Vector3(centerOfMovement.position.x, centerOfMovement.position.y, centerOfMovement.position.z - zBound), gizmoRadius);
+
+        Gizmos.DrawWireSphere(transform.position, aggroRadius);
     }
 }
