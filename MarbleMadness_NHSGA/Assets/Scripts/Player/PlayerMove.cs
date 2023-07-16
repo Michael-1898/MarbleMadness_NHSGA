@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -57,7 +56,7 @@ public class PlayerMove : MonoBehaviour
             else GoalReached();
         }
 
-        else if (collision.gameObject.tag == "ground")
+        else if (collision.gameObject.tag == "ground" || collision.gameObject.tag == "ramp")
         {
             numOfColliders += 1;
             if (numOfColliders == 1)
@@ -68,14 +67,32 @@ public class PlayerMove : MonoBehaviour
             }
             yOnExit = gameObject.transform.position.y;
         }
+
+        if (collision.gameObject.tag == "ramp")
+        {
+            gameObject.GetComponent<Rigidbody>().useGravity = false;
+        }
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.tag == "ground")
+        if (collision.gameObject.tag == "ground" || collision.gameObject.tag == "ramp")
         {
             numOfColliders -= 1;
             yOnExit = gameObject.transform.position.y;
+        }
+        if (collision.gameObject.tag == "ramp")
+        {
+            gameObject.GetComponent<Rigidbody>().useGravity = true;
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "ramp")
+        {
+            Vector3 rampDir = collision.contacts[0].normal * -1;
+            rb.AddForce(rampDir.normalized * gravity);
         }
     }
 
