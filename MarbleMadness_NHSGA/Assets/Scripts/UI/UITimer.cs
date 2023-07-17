@@ -22,6 +22,7 @@ public class UITimer : MonoBehaviour
     private Vector3 playerOrigin;
     private bool playerHasMoved = false;
     private float startTimer;
+    private bool playerReady = false;
 
     // Start is called before the first frame update
     void Start()
@@ -34,9 +35,7 @@ public class UITimer : MonoBehaviour
     {
         EnablePlayer();
 
-        if(player.GetComponent<PlayerMove>().enabled == true) {
-            CheckIfPlayerMoved();
-        }
+        CheckIfPlayerMoved();
 
         DisplayDisclaimer();
 
@@ -96,14 +95,15 @@ public class UITimer : MonoBehaviour
     {
         if(player.transform.position != playerOrigin && !playerHasMoved) {
             playerHasMoved = true;
+            print("player moved");
         }
     }
 
     void EnablePlayer()
     {
         startTimer += Time.deltaTime;
-        if(startTimer > 2f && player.GetComponent<PlayerMove>().enabled == false) {
-            player.GetComponent<PlayerMove>().enabled = true;
+        if(startTimer > 2.5f && !playerReady) {
+            playerReady = true;
             playerOrigin = player.transform.position;
         }
     }
