@@ -135,7 +135,6 @@ public class PlayerMove : MonoBehaviour
             gravityOn = true;
         }
     }
-    public float normalForce;
 
     //private void OnCollisionStay(Collision collision)
     //{
@@ -157,7 +156,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (other.tag == "ramp")
         {
-            rb.AddForce(-other.transform.up * gravity * normalForce * rb.velocity.magnitude);
+            rb.AddForce(-other.transform.up * gravity * rb.velocity.magnitude);
         }
     }
 
