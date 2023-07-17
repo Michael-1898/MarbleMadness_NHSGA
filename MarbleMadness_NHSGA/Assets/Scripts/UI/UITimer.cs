@@ -9,6 +9,7 @@ public class UITimer : MonoBehaviour
     //text objects
     [SerializeField] GameObject timerTxt;
     [SerializeField] GameObject timeDisclaimer;
+    [SerializeField] float width;
 
     //timing and display
     private float timer;
@@ -70,8 +71,8 @@ public class UITimer : MonoBehaviour
     {
         //increase timer
         timer += 25 * Time.deltaTime;
-        timerTxt.GetComponent<TMP_Text>().text = "<mspace=21pxem>" + (Mathf.Round(timer * 100f) / 100f).ToString("f2");
-        
+        timerTxt.GetComponent<TMP_Text>().text = "" + Mathf.Round(timer * 100f) / 100f;
+        //timerTxt.SetText($"<mspace={width}em{Mathf.Round(timer * 100f) / 100f}");
         if(timer >= 60) {
             timerTxt.GetComponent<TMP_Text>().text = "60";
             timerFull = true;
@@ -81,14 +82,14 @@ public class UITimer : MonoBehaviour
         if(levelTime - timer < 0) {
             timeDisclaimer.GetComponent<TMP_Text>().text = "Time to finish race: 0";
         } else {
-            timeDisclaimer.GetComponent<TMP_Text>().text = "Time to finish race: <mspace=21pxem>" + (Mathf.Round((levelTime - timer) * 100f) / 100f).ToString("f2");
+            timeDisclaimer.GetComponent<TMP_Text>().text = "Time to finish race: " + Mathf.Round((levelTime - timer) * 100f) / 100f;
         }
     }
 
     void DecreaseTimer()
     {
         timer -= Time.deltaTime;
-        timerTxt.GetComponent<TMP_Text>().text = "<mspace=21pxem>" + (Mathf.Round(timer * 100f) / 100f).ToString("f2");
+        timerTxt.GetComponent<TMP_Text>().text = "" + Mathf.Round(timer * 100f) / 100f;
     }
 
     void CheckIfPlayerMoved()
