@@ -20,7 +20,7 @@ public class PlayerMove : MonoBehaviour
     private Vector3 moveRawInput;
     private Vector3 moveDirection;
     [SerializeField] float moveForce;
-    private bool hasBeenInGoal = false;
+    public bool hasBeenInGoal = false;
     [SerializeField] float topSpeed;
 
     //gravity
@@ -29,13 +29,15 @@ public class PlayerMove : MonoBehaviour
     private bool gravityOn = true;
     [SerializeField] GameObject container;
 
+    //misc
     private float yOnExit = 0;
     private int numOfColliders = 0;
+    [SerializeField] GameObject winDisplay;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        winDisplay.SetActive(false);
     }
 
     // Update is called once per frame
@@ -178,6 +180,8 @@ public class PlayerMove : MonoBehaviour
     void GoalReached()
     {
         rb.velocity = Vector3.zero;
-        rb.AddForce(Vector3.up * 10, ForceMode.VelocityChange);
+        moveForce = 0;
+
+        winDisplay.SetActive(true);
     }
 }
