@@ -110,7 +110,7 @@ public class PlayerMove : MonoBehaviour
             yOnExit = gameObject.transform.position.y;
         }
 
-        if (collision.gameObject.tag == "ramp")
+        if (collision.gameObject.tag == "ground")
         {
             gravityOn = false;
             gameObject.GetComponent<Rigidbody>().useGravity = false;
