@@ -13,6 +13,9 @@ public class BallAttack : MonoBehaviour
     [SerializeField] float moveForce;
     [SerializeField] Rigidbody rb;
 
+    //sound
+    [SerializeField] AudioSource collisionSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +45,13 @@ public class BallAttack : MonoBehaviour
         if(Vector3.Distance(transform.position, playerPosition.position) > aggroRadius) {
             //enable movescript
             this.gameObject.GetComponent<BallMovement>().enabled = true;
+        }
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if(col.gameObject.CompareTag("Player")) {
+            collisionSound.Play();
         }
     }
 

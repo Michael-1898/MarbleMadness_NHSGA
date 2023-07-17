@@ -21,7 +21,7 @@ public class DeathZone : MonoBehaviour
     void OnCollisionEnter(Collision col)
     {
         if(col.gameObject.CompareTag("Player")) {
-            player.GetComponent<CheckpointManager>().SendToCheckPoint();
+            player.GetComponent<CheckpointManager>().SendToCheckpoint();
         }
     }
 }

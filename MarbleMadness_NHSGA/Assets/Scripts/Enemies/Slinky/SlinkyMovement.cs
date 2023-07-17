@@ -6,7 +6,7 @@ public class SlinkyMovement : MonoBehaviour
 {
     //movement
     [SerializeField] private Transform[] points;
-    [SerializeField] private GameObject Slinky;
+    [SerializeField] private GameObject slinky;
     [SerializeField] private float speed;
 
     //misc
@@ -23,13 +23,13 @@ public class SlinkyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = Slinky.GetComponent<Rigidbody>();
+        rb = slinky.GetComponent<Rigidbody>();
         playerTransform = GameObject.FindWithTag("Player").transform;
     }
 
     void OnEnable()
     {
-        Slinky.GetComponent<SlinkyAttack>().enabled = false;
+        slinky.GetComponent<SlinkyAttack>().enabled = false;
         SetNextTarget();
     }
 
@@ -38,11 +38,12 @@ public class SlinkyMovement : MonoBehaviour
     {
         //if player is in aggro range go to attack behavior
         if(Vector3.Distance(rb.position, playerTransform.position) < aggroRadius) {
-            Slinky.GetComponent<SlinkyAttack>().enabled = true;
+            slinky.GetComponent<SlinkyAttack>().enabled = true;
         }
 
         //if reached current target, set next target
-        if (Vector3.Distance(rb.position, currentTarget) < 1)
+        currentTarget = new Vector3(currentTarget.x, slinky.transform.position.y, currentTarget.z);
+        if (Vector3.Distance(slinky.transform.position, currentTarget) < 0.5f)
         {
             SetNextTarget();
         }
@@ -51,7 +52,7 @@ public class SlinkyMovement : MonoBehaviour
     private void FixedUpdate()
     {
         //move towards current target position
-        rb.MovePosition(Vector3.MoveTowards(rb.position, currentTarget, speed * Time.fixedDeltaTime));
+        rb.MovePosition(Vector3.MoveTowards(slinky.transform.position, currentTarget, speed * Time.fixedDeltaTime));
     }
 
     private void SetNextTarget()
@@ -66,6 +67,6 @@ public class SlinkyMovement : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(Slinky.transform.position, aggroRadius);
+        Gizmos.DrawWireSphere(slinky.transform.position, aggroRadius);
     }
 }

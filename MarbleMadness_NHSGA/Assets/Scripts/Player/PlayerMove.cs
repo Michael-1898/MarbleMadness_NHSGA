@@ -8,17 +8,25 @@ public class PlayerMove : MonoBehaviour
     //components
     [SerializeField] Camera cam;
     [SerializeField] Rigidbody rb;
-    public int gravity;
 
     //sound
     [SerializeField] AudioSource marbleRoll;
     private bool rollSoundPlaying;
+    [SerializeField] AudioSource breakSound;
+    [SerializeField] AudioSource dizzySound;
+    [SerializeField] AudioSource fallSound;
     
     //movement
     private Vector3 moveRawInput;
     private Vector3 moveDirection;
     [SerializeField] float moveForce;
     private bool hasBeenInGoal = false;
+
+    //gravity
+    private float gravity = 9.81f;
+    [SerializeField] float gravityMultiplier;
+    private bool gravityOn = true;
+    [SerializeField] GameObject container;
 
     private float yOnExit = 0;
     private int numOfColliders = 0;
@@ -36,12 +44,12 @@ public class PlayerMove : MonoBehaviour
         moveDirection = new Vector3(moveDirection.x, 0, moveDirection.z); //stop move direction from movign player upward
         
 
-        if(rb.velocity != Vector3.zero && numOfColliders > 0 && !rollSoundPlaying) {
+        if(rb.velocity.magnitude > 0.4f && numOfColliders > 0 && !rollSoundPlaying) {
             marbleRoll.Play();
             rollSoundPlaying = true;
         }
 
-        if((rb.velocity == Vector3.zero || numOfColliders < 1) && rollSoundPlaying) {
+        if((rb.velocity.magnitude < 0.4f || numOfColliders < 1) && rollSoundPlaying) {
             marbleRoll.Stop();
             rollSoundPlaying = false;
         }
@@ -51,6 +59,11 @@ public class PlayerMove : MonoBehaviour
     {
         //rb.AddForce(Vector3.down * gravity * Time.deltaTime, ForceMode.Acceleration);
         rb.AddForce(moveDirection * moveForce, ForceMode.Impulse);
+
+        //gravity
+        if(gravityOn) {
+            rb.AddForce(-container.transform.up * gravity * gravityMultiplier, ForceMode.Acceleration);
+        }
     }
 
     void OnMove(InputValue value)
@@ -77,15 +90,29 @@ public class PlayerMove : MonoBehaviour
             if (numOfColliders == 1)
             {
                 float distance = yOnExit - gameObject.transform.position.y;
-                if (distance > 3 && distance < 5) Debug.Log("dizzy");
-                else if (distance > 5) Debug.Log("crack");
+                if (distance > 3 && distance < 5) {
+                    Debug.Log("dizzy");
+                    dizzySound.Play();
+                }
+                else if (distance > 5) {
+                    Debug.Log("crack");
+
+                    //play break sound
+                    breakSound.Play();
+
+                    //play break animation
+                    GetComponent<CheckpointManager>().SendToCheckpoint();
+                }
+                else if(distance > 1f) {
+                    fallSound.Play();
+                }
             }
             yOnExit = gameObject.transform.position.y;
         }
 
         if (collision.gameObject.tag == "ramp")
         {
-            gameObject.GetComponent<Rigidbody>().useGravity = false;
+            gravityOn = false;
         }
     }
 
@@ -98,7 +125,7 @@ public class PlayerMove : MonoBehaviour
         }
         if (collision.gameObject.tag == "ramp")
         {
-            gameObject.GetComponent<Rigidbody>().useGravity = true;
+            gravityOn = true;
         }
     }
 

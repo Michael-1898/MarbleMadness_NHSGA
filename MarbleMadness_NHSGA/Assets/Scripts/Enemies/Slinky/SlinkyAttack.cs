@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class SlinkyAttack : MonoBehaviour
 {
-
+    //misc
     [SerializeField] Rigidbody rb;
     [SerializeField] GameObject SlinkyMover;
+
+    //sound
+    [SerializeField] AudioSource marbleCollision;
 
     //aggro
     [SerializeField] float aggroRadius;
@@ -103,6 +106,9 @@ public class SlinkyAttack : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
+        if(col.gameObject.CompareTag("Player")) {
+            marbleCollision.Play();
+        }
         //send player to checkpoint
     }
 

@@ -28,7 +28,7 @@ public class CheckpointManager : MonoBehaviour
         }
     }
 
-    public void SendToCheckPoint()
+    public void SendToCheckpoint()
     {
         //play death animation and sound or whatever
         respawnSound.Play();
