@@ -135,18 +135,29 @@ public class PlayerMove : MonoBehaviour
             gravityOn = true;
         }
     }
+    public float normalForce;
 
-    private void OnCollisionStay(Collision collision)
+    //private void OnCollisionStay(Collision collision)
+    //{
+    //    if (collision.gameObject.tag == "ramp")
+    //    {
+    //        Vector3 rampDir = collision.contacts[0].normal * -1;
+    //        rb.AddForce(rampDir.normalized * gravity * normalForce * rb.velocity.magnitude);
+    //        Debug.DrawRay(collision.contacts[0].point, -collision.contacts[0].normal * 100, Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f), 10f);
+
+    //    }
+    //    else if (collision.gameObject.tag == "ramp" && -(collision.contacts[0].normal) != new Vector3(0f, -0.71f, 0.71f))
+    //    {
+    //        Debug.Log("collision is actually " + collision.contacts[0].normal * -1);
+    //        Debug.Log("difference = " + (new Vector3(0f, -0.71f, 0.71f) - -collision.contacts[0].normal));
+    //    }
+    //}
+
+    private void OnTriggerStay(Collider other)
     {
-        if (collision.gameObject.tag == "ramp" && -(collision.contacts[0].normal) == new Vector3(0f, -0.71f, 0.71f))
+        if (other.tag == "ramp")
         {
-            Vector3 rampDir = collision.contacts[0].normal * -1;
-            Debug.Log(rampDir);
-            rb.AddForce(rampDir.normalized * gravity);
-        } else if (collision.gameObject.tag == "ramp" && -(collision.contacts[0].normal) != new Vector3(0f, -0.71f, 0.71f))
-        {
-            Debug.Log("collision is actually " + collision.contacts[0].normal * -1);
-            Debug.Log("difference = " + (new Vector3(0f, -0.71f, 0.71f) - -collision.contacts[0].normal));
+            rb.AddForce(-other.transform.up * gravity * normalForce * rb.velocity.magnitude);
         }
     }
 
