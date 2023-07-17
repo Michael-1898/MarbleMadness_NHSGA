@@ -6,32 +6,45 @@ using TMPro;
 
 public class UITimer : MonoBehaviour
 {
+    //text objects
     [SerializeField] GameObject timerTxt;
     [SerializeField] GameObject timeDisclaimer;
 
+    //timing and display
     private float timer;
     [SerializeField] float disclaimerDuration;
     private bool disclaimerDone = false;
     private bool timerFull = false;
-
     [SerializeField] float levelTime;
+
+    //player enabling
+    private GameObject player;
+    private Vector3 playerOrigin;
+    private bool playerHasMoved = false;
+    private float startTimer;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
+        EnablePlayer();
+
+        if(player.GetComponent<PlayerMove>().enabled == true) {
+            CheckIfPlayerMoved();
+        }
+
         DisplayDisclaimer();
 
         if(disclaimerDone && !timerFull) {
             FillUpTimer();
         }
 
-        if(timerFull) {
+        if(timerFull && playerHasMoved) {
             timeDisclaimer.SetActive(false);
 
             DecreaseTimer();
@@ -77,5 +90,21 @@ public class UITimer : MonoBehaviour
     {
         timer -= Time.deltaTime;
         timerTxt.GetComponent<TMP_Text>().text = "<mspace=21pxem>" + (Mathf.Round(timer * 100f) / 100f).ToString("f2");
+    }
+
+    void CheckIfPlayerMoved()
+    {
+        if(player.transform.position != playerOrigin && !playerHasMoved) {
+            playerHasMoved = true;
+        }
+    }
+
+    void EnablePlayer()
+    {
+        startTimer += Time.deltaTime;
+        if(startTimer > 2f && player.GetComponent<PlayerMove>().enabled == false) {
+            player.GetComponent<PlayerMove>().enabled = true;
+            playerOrigin = player.transform.position;
+        }
     }
 }
