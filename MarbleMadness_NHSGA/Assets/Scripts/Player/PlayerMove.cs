@@ -121,15 +121,9 @@ public class PlayerMove : MonoBehaviour
             gravityOn = false;
             gameObject.GetComponent<Rigidbody>().useGravity = false;
         }
-        if (collision.gameObject.tag == "ground") {
-
-            Vector3 normal = collision.contacts[0].normal;
-            Transform transform = collision.gameObject.transform;
-            if (normal == transform.forward) Debug.Log("forward");
-            else if (normal == -(transform.forward)) Debug.Log("backward");
-            else if (normal == transform.up) Debug.Log("up");
-        }
     }
+
+    public int pooshAmount;
 
     private void OnCollisionExit(Collision collision)
     {
@@ -159,6 +153,19 @@ public class PlayerMove : MonoBehaviour
     //        Debug.Log("difference = " + (new Vector3(0f, -0.71f, 0.71f) - -collision.contacts[0].normal));
     //    }
     //}
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.tag == "ground")
+        {
+            Vector3 normal = collision.contacts[0].normal;
+            Transform transform = collision.gameObject.transform;
+            if (normal == transform.forward) rb.AddForce(transform.forward * pooshAmount, ForceMode.Impulse);
+            else if (normal == -transform.forward) rb.AddForce(-transform.forward * pooshAmount, ForceMode.Impulse);
+            else if (normal == transform.right) rb.AddForce(transform.right * pooshAmount, ForceMode.Impulse);
+            else if (normal == -transform.right) rb.AddForce(-transform.right * pooshAmount, ForceMode.Impulse);
+        }
+    }
 
     private void OnTriggerStay(Collider other)
     {
