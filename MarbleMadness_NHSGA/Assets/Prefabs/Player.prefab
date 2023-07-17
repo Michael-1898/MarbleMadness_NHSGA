@@ -145,6 +145,7 @@ MonoBehaviour:
   topSpeed: 7
   gravityMultiplier: 2
   container: {fileID: 5106586223276465870}
+  pooshAmount: 13
 --- !u!114 &8384036791371797074
 MonoBehaviour:
   m_ObjectHideFlags: 0
