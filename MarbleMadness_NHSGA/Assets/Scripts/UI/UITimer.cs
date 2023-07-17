@@ -10,6 +10,7 @@ public class UITimer : MonoBehaviour
     [SerializeField] GameObject timerTxt;
     [SerializeField] GameObject timeDisclaimer;
     [SerializeField] GameObject disclaimerBG;
+    [SerializeField] GameObject gameOverDisplay;
 
     //timing and display
     private float timer;
@@ -17,6 +18,7 @@ public class UITimer : MonoBehaviour
     private bool disclaimerDone = false;
     private bool timerFull = false;
     [SerializeField] float levelTime;
+    private bool gameIsOver = false;
 
     //player enabling
     private GameObject player;
@@ -28,6 +30,7 @@ public class UITimer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameOverDisplay.SetActive(false);
         player = GameObject.FindWithTag("Player");
     }
 
@@ -93,8 +96,15 @@ public class UITimer : MonoBehaviour
 
     void DecreaseTimer()
     {
-        timer -= Time.deltaTime;
-        timerTxt.GetComponent<TMP_Text>().text = "<mspace=21pxem>" + (Mathf.Round(timer * 100f) / 100f).ToString("f2");
+        if(!gameIsOver) {
+            timer -= Time.deltaTime;
+            timerTxt.GetComponent<TMP_Text>().text = "<mspace=21pxem>" + (Mathf.Round(timer * 100f) / 100f).ToString("f2");
+        }
+
+        if(timer <= 0 && !gameIsOver) {
+            gameIsOver = true;
+            GameOver();
+        }
     }
 
     void CheckIfPlayerMoved()
@@ -117,5 +127,11 @@ public class UITimer : MonoBehaviour
             playerReady = true;
             playerOrigin = player.transform.position;
         }
+    }
+
+    void GameOver()
+    {
+        gameOverDisplay.SetActive(true);
+        player.GetComponent<PlayerMove>().enabled = false;
     }
 }
