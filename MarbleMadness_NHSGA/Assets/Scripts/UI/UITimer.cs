@@ -9,6 +9,7 @@ public class UITimer : MonoBehaviour
     //text objects
     [SerializeField] GameObject timerTxt;
     [SerializeField] GameObject timeDisclaimer;
+    [SerializeField] GameObject disclaimerBG;
 
     //timing and display
     private float timer;
@@ -47,6 +48,7 @@ public class UITimer : MonoBehaviour
 
         if(timerFull) {
             timeDisclaimer.SetActive(false);
+            disclaimerBG.SetActive(false);
         }
 
         if(timerFull && playerHasMoved) {

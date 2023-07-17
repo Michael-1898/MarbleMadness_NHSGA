@@ -141,8 +141,9 @@ MonoBehaviour:
   breakSound: {fileID: 8268946151957866445}
   dizzySound: {fileID: 2490560347440393055}
   fallSound: {fileID: 3577033115177778670}
-  moveForce: 1.2
-  gravityMultiplier: 1
+  moveForce: 2
+  topSpeed: 7
+  gravityMultiplier: 2
   container: {fileID: 5106586223276465870}
 --- !u!114 &8384036791371797074
 MonoBehaviour:
