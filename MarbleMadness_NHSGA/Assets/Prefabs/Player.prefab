@@ -142,9 +142,11 @@ MonoBehaviour:
   dizzySound: {fileID: 2490560347440393055}
   fallSound: {fileID: 3577033115177778670}
   moveForce: 2
-  topSpeed: 7
+  hasBeenInGoal: 0
+  topSpeed: 8
   gravityMultiplier: 2
   container: {fileID: 5106586223276465870}
+  winDisplay: {fileID: 0}
   pooshAmount: 13
 --- !u!114 &8384036791371797074
 MonoBehaviour:
