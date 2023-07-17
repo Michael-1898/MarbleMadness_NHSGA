@@ -113,6 +113,13 @@ public class PlayerMove : MonoBehaviour
         if (collision.gameObject.tag == "ramp")
         {
             gravityOn = false;
+            gameObject.GetComponent<Rigidbody>().useGravity = false;
+
+            Vector3 normal = collision.contacts[0].normal;
+            Transform transform = collision.gameObject.transform;
+            if (normal == transform.forward) Debug.Log("forward");
+            else if (normal == -(transform.forward)) Debug.Log("backward");
+            else if (normal == transform.up) Debug.Log("up");
         }
     }
 
@@ -131,10 +138,15 @@ public class PlayerMove : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.tag == "ramp")
+        if (collision.gameObject.tag == "ramp" && -(collision.contacts[0].normal) == new Vector3(0f, -0.71f, 0.71f))
         {
             Vector3 rampDir = collision.contacts[0].normal * -1;
+            Debug.Log(rampDir);
             rb.AddForce(rampDir.normalized * gravity);
+        } else if (collision.gameObject.tag == "ramp" && -(collision.contacts[0].normal) != new Vector3(0f, -0.71f, 0.71f))
+        {
+            Debug.Log("collision is actually " + collision.contacts[0].normal * -1);
+            Debug.Log("difference = " + (new Vector3(0f, -0.71f, 0.71f) - -collision.contacts[0].normal));
         }
     }
 
