@@ -81,9 +81,9 @@ public class UITimer : MonoBehaviour
 
         //decrease disclaimer time
         if(levelTime - timer < 0) {
-            timeDisclaimer.GetComponent<TMP_Text>().text = "Time to finish race: 0";
+            timeDisclaimer.GetComponent<TMP_Text>().text = "<mspace=23pxem>Time to finish race: 0";
         } else {
-            timeDisclaimer.GetComponent<TMP_Text>().text = "Time to finish race: <mspace=21pxem>" + (Mathf.Round((levelTime - timer) * 100f) / 100f).ToString("f2");
+            timeDisclaimer.GetComponent<TMP_Text>().text = "<mspace=23pxem>Time to finish race: " + (Mathf.Round((levelTime - timer) * 100f) / 100f).ToString("f2");
         }
     }
 
