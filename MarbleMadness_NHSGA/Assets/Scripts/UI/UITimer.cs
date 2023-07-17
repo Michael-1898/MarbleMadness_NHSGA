@@ -9,6 +9,7 @@ public class UITimer : MonoBehaviour
     //text objects
     [SerializeField] GameObject timerTxt;
     [SerializeField] GameObject timeDisclaimer;
+    [SerializeField] GameObject disclaimerBG;
 
     //timing and display
     private float timer;
@@ -45,9 +46,12 @@ public class UITimer : MonoBehaviour
             FillUpTimer();
         }
 
-        if(timerFull && playerHasMoved) {
+        if(timerFull) {
             timeDisclaimer.SetActive(false);
+            disclaimerBG.SetActive(false);
+        }
 
+        if(timerFull && playerHasMoved) {
             DecreaseTimer();
         }
     }
@@ -103,7 +107,13 @@ public class UITimer : MonoBehaviour
     void EnablePlayer()
     {
         startTimer += Time.deltaTime;
-        if(startTimer > 2.5f && !playerReady) {
+
+        if(!playerReady) {
+            //stop player from moving
+            player.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
+
+        if(startTimer > 5f && !playerReady) {
             playerReady = true;
             playerOrigin = player.transform.position;
         }

@@ -21,6 +21,7 @@ public class PlayerMove : MonoBehaviour
     private Vector3 moveDirection;
     [SerializeField] float moveForce;
     private bool hasBeenInGoal = false;
+    [SerializeField] float topSpeed;
 
     //gravity
     private float gravity = 9.81f;
@@ -53,6 +54,11 @@ public class PlayerMove : MonoBehaviour
             marbleRoll.Stop();
             rollSoundPlaying = false;
         }
+
+        // if(rb.velocity.magnitude > topSpeed) {
+        //     rb.velocity.magnitude = topSpeed;
+        // }
+        rb.velocity = Vector3.ClampMagnitude(rb.velocity, topSpeed);
     }
 
     void FixedUpdate()
