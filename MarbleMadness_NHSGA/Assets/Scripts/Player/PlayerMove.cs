@@ -29,6 +29,9 @@ public class PlayerMove : MonoBehaviour
     private bool gravityOn = true;
     [SerializeField] GameObject container;
 
+    //FX
+    [SerializeField] GameObject dizzyFX;
+
     //misc
     private float yOnExit = 0;
     private int numOfColliders = 0;
@@ -101,6 +104,7 @@ public class PlayerMove : MonoBehaviour
                 if (distance > 3 && distance < 5) {
                     Debug.Log("dizzy");
                     dizzySound.Play();
+                    Instantiate(dizzyFX, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
                 }
                 else if (distance > 5) {
                     Debug.Log("crack");
