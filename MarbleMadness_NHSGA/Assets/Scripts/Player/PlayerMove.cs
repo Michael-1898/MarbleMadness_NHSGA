@@ -116,10 +116,12 @@ public class PlayerMove : MonoBehaviour
             yOnExit = gameObject.transform.position.y;
         }
 
-        if (collision.gameObject.tag == "ground")
+        if (collision.gameObject.tag == "ramp")
         {
             gravityOn = false;
             gameObject.GetComponent<Rigidbody>().useGravity = false;
+        }
+        if (collision.gameObject.tag == "ground") {
 
             Vector3 normal = collision.contacts[0].normal;
             Transform transform = collision.gameObject.transform;
