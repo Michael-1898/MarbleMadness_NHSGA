@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -159,25 +160,26 @@ public class PlayerMove : MonoBehaviour
     //    }
     //}
 
+    // Player Knockback
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.tag == "ground")
+        Vector3 normal = collision.contacts[0].normal;
+        Transform transform = collision.gameObject.transform;
+
+        if (
+            (collision.gameObject.tag == "ground" && new List<Vector3>() { transform.right, -transform.right, transform.forward, -transform.forward }.Contains(normal))
+            || collision.gameObject.tag == "enemy"
+            )
         {
-            Vector3 normal = collision.contacts[0].normal;
-            Transform transform = collision.gameObject.transform;
-            if (normal == transform.forward) {
-                rb.AddForce(transform.forward * pooshAmount, ForceMode.Impulse);
-            }
-            else if (normal == -transform.forward) {
-                rb.AddForce(-transform.forward * pooshAmount, ForceMode.Impulse);
-            }
-            else if (normal == transform.right) {
-                rb.AddForce(transform.right * pooshAmount, ForceMode.Impulse);
-            }
-            else if (normal == -transform.right) {
-                rb.AddForce(-transform.right * pooshAmount, ForceMode.Impulse);
-            }
+            
+            //Debug.Log(normal);
+            //Debug.Log("c1:" + (collision.gameObject.tag == "ground") + ", c2: " + (normal != transform.up) + ", c3: " + (collision.gameObject.tag == "enemy"));
+            rb.AddForce(normal * pooshAmount, ForceMode.Impulse);
+        } else
+        {
+            
         }
+        
     }
 
     //  (\ /)

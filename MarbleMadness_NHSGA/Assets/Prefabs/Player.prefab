@@ -100,7 +100,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2627017847182950046}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: d416d84c2328944efa879330f44785eb, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -140,9 +140,9 @@ MonoBehaviour:
   breakSound: {fileID: 8268946151957866445}
   dizzySound: {fileID: 2490560347440393055}
   fallSound: {fileID: 3577033115177778670}
-  moveForce: 2
+  moveForce: 0.6
   hasBeenInGoal: 0
-  topSpeed: 6
+  topSpeed: 10
   canMove: 0
   pooshAmount: 10
   gravityMultiplier: 2
