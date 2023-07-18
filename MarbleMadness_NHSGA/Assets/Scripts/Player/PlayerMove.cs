@@ -173,6 +173,10 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
+    //  (\ /)
+    //  (o o)
+    //  (U U)o
+
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "ramp")
