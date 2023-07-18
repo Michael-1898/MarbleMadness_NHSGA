@@ -18,6 +18,7 @@ public class SlinkyAttack : MonoBehaviour
     [SerializeField] float attkCooldown;
     private float attkTimer;
     [SerializeField] float jumpForce;
+    private GameObject player;
     private Transform playerTransform;
     private Vector3 attkDirection;
     [SerializeField] float lateralAttkSpeed;
@@ -35,6 +36,7 @@ public class SlinkyAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindWithTag("Player");
         playerTransform = GameObject.FindWithTag("Player").transform;
     }
 
@@ -104,12 +106,13 @@ public class SlinkyAttack : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision col)
+    void OnTriggerEnter(Collider col)
     {
-        if(col.gameObject.CompareTag("Player")) {
+        if(col.gameObject.CompareTag("Player") && !isGrounded) {
             marbleCollision.Play();
+
+            player.GetComponent<CheckpointManager>().SendToFarCheckpoint();
         }
-        //send player to checkpoint
     }
 
     private void OnDrawGizmosSelected()

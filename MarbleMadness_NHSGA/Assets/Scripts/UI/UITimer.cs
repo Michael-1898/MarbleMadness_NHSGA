@@ -27,6 +27,12 @@ public class UITimer : MonoBehaviour
     private float startTimer;
     private bool playerReady = false;
 
+    //sound
+    [SerializeField] AudioSource fillTimer;
+    [SerializeField] AudioSource timerTick;
+    private bool isTicking = false;
+    [SerializeField] AudioSource bgMusic;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -81,12 +87,17 @@ public class UITimer : MonoBehaviour
 
     void FillUpTimer()
     {
+        if(timer == 0) {
+            fillTimer.Play();
+        }
+
         //increase timer
-        timer += 25 * Time.deltaTime;
+        timer += 12.5f * Time.deltaTime;
         timerTxt.GetComponent<TMP_Text>().text = "<mspace=21pxem>" + (Mathf.Round(timer * 100f) / 100f).ToString("f2");
         
-        if(timer >= 60) {
-            timerTxt.GetComponent<TMP_Text>().text = "60";
+        if(timer > levelTime) {
+            timerTxt.GetComponent<TMP_Text>().text = "" + levelTime;
+            timer = levelTime;
             timerFull = true;
         }
 
@@ -100,12 +111,18 @@ public class UITimer : MonoBehaviour
 
     void DecreaseTimer()
     {
+        if(timer <= 5 && !isTicking) {
+            timerTick.Play();
+            isTicking = true;
+        }
+
         if(!gameIsOver) {
             timer -= Time.deltaTime;
             timerTxt.GetComponent<TMP_Text>().text = "<mspace=21pxem>" + (Mathf.Round(timer * 100f) / 100f).ToString("f2");
         }
 
         if(timer <= 0 && !gameIsOver) {
+            timerTick.Stop();
             gameIsOver = true;
             GameOver();
         }
@@ -137,5 +154,6 @@ public class UITimer : MonoBehaviour
     {
         gameOverDisplay.SetActive(true);
         player.GetComponent<PlayerMove>().enabled = false;
+        bgMusic.Stop();
     }
 }

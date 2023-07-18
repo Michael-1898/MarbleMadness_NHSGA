@@ -50,12 +50,12 @@ public class PlayerMove : MonoBehaviour
         moveDirection = new Vector3(moveDirection.x, 0, moveDirection.z); //stop move direction from movign player upward
         
 
-        if(rb.velocity.magnitude > 0.4f && numOfColliders > 0 && !rollSoundPlaying) {
+        if(rb.velocity.magnitude > 2f && numOfColliders > 0 && !rollSoundPlaying) {
             marbleRoll.Play();
             rollSoundPlaying = true;
         }
 
-        if((rb.velocity.magnitude < 0.4f || numOfColliders < 1) && rollSoundPlaying) {
+        if((rb.velocity.magnitude < 2f || numOfColliders < 1) && rollSoundPlaying) {
             marbleRoll.Stop();
             rollSoundPlaying = false;
         }
