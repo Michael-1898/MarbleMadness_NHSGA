@@ -28,7 +28,7 @@ public class CheckpointManager : MonoBehaviour
         if(col.gameObject.CompareTag("ground")) {
             //occasional checkpoints
             checkpointCounter++;
-            if(checkpointCounter > 12) {
+            if(checkpointCounter > 17) {
                 farCheckpoint.transform.position = checkpoint.transform.position;
                 checkpointCounter = 0;
             }

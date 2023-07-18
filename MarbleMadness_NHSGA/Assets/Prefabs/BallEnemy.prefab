@@ -169,7 +169,7 @@ MonoBehaviour:
   centerOfMovement: {fileID: 8481849591844901129}
   xBound: 0.5
   zBound: 0.5
-  aggroRadius: 5
+  aggroRadius: 4
 --- !u!114 &7855965896507519902
 MonoBehaviour:
   m_ObjectHideFlags: 0

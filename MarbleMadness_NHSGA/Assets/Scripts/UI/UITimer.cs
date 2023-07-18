@@ -51,6 +51,7 @@ public class UITimer : MonoBehaviour
 
         if(playerReady) {
             CheckIfPlayerMoved();
+            player.GetComponent<PlayerMove>().canMove = true;
         }
 
         DisplayDisclaimer();
@@ -138,11 +139,6 @@ public class UITimer : MonoBehaviour
     void EnablePlayer()
     {
         startTimer += Time.deltaTime;
-
-        if(!playerReady) {
-            //stop player from moving
-            player.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        }
 
         if(startTimer > 5f && !playerReady) {
             playerReady = true;

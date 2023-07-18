@@ -22,6 +22,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] float moveForce;
     public bool hasBeenInGoal = false;
     [SerializeField] float topSpeed;
+    public bool canMove = false;
 
     //gravity
     private float gravity = 9.81f;
@@ -60,16 +61,15 @@ public class PlayerMove : MonoBehaviour
             rollSoundPlaying = false;
         }
 
-        // if(rb.velocity.magnitude > topSpeed) {
-        //     rb.velocity.magnitude = topSpeed;
-        // }
         rb.velocity = Vector3.ClampMagnitude(rb.velocity, topSpeed);
     }
 
     void FixedUpdate()
     {
         //rb.AddForce(Vector3.down * gravity * Time.deltaTime, ForceMode.Acceleration);
-        rb.AddForce(moveDirection * moveForce, ForceMode.Impulse);
+        if(canMove) {
+            rb.AddForce(moveDirection * moveForce, ForceMode.Impulse);
+        }
 
         //gravity
         if(gravityOn) {

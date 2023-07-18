@@ -7,6 +7,7 @@ public class SlinkyAttack : MonoBehaviour
     //misc
     [SerializeField] Rigidbody rb;
     [SerializeField] GameObject SlinkyMover;
+    [SerializeField] Animator anim;
 
     //sound
     [SerializeField] AudioSource marbleCollision;
@@ -56,6 +57,7 @@ public class SlinkyAttack : MonoBehaviour
 
         if(isJumping && isGrounded) {
             isJumping = false;
+            anim.SetBool("isFalling", false);
         }
         
         if(attkTimer >= attkCooldown && !isJumping) {
@@ -67,6 +69,11 @@ public class SlinkyAttack : MonoBehaviour
         //if player is outside aggro range return to movement script
         if(Vector3.Distance(rb.position, playerTransform.position) > aggroRadius && !isJumping) {
             SlinkyMover.GetComponent<SlinkyMovement>().enabled = true;
+        }
+
+        if(isJumping && rb.velocity.y < 0) {
+            anim.SetBool("isJumping", false);
+            anim.SetBool("isFalling", true);
         }
     }
 
@@ -80,6 +87,7 @@ public class SlinkyAttack : MonoBehaviour
     private void Jump()
     {   
         isJumping = true;
+        anim.SetBool("isJumping", true);
 
         //jump in air while doing it
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);

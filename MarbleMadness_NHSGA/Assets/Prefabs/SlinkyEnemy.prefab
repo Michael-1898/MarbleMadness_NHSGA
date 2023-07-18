@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: 1935757629868052238}
   - component: {fileID: 783740515514981279}
   - component: {fileID: 4293633780484785741}
+  - component: {fileID: 5356986045541255380}
   m_Layer: 0
   m_Name: Slinky
   m_TagString: Untagged
@@ -254,6 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 7870147952719639697}
   SlinkyMover: {fileID: 7630612626280623241}
+  anim: {fileID: 5356986045541255380}
   marbleCollision: {fileID: 783740515514981279}
   aggroRadius: 6
   attkCooldown: 1
@@ -374,6 +376,27 @@ CapsuleCollider:
   m_Height: 1.3
   m_Direction: 1
   m_Center: {x: 0, y: 0.65, z: 0}
+--- !u!95 &5356986045541255380
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6681740015331242520}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 99d5cd633309a5d4ba9965c96f018479, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7116265122620948809
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,7 +701,7 @@ MonoBehaviour:
   - {fileID: 7630612625929641126}
   slinky: {fileID: 6681740015331242520}
   speed: 1.5
-  aggroRadius: 6
+  aggroRadius: 5
 --- !u!1 &7630612626286511846
 GameObject:
   m_ObjectHideFlags: 0
