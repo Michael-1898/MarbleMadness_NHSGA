@@ -5,7 +5,8 @@ using UnityEngine;
 public class CheckpointManager : MonoBehaviour
 {
     [SerializeField] GameObject checkpoint;
-    [SerializeField] GameObject secondCheckpoint;
+    [SerializeField] GameObject farCheckpoint;
+    private int checkpointCounter;
     [SerializeField] Rigidbody rb;
 
     [SerializeField] AudioSource respawnSound;
@@ -25,7 +26,13 @@ public class CheckpointManager : MonoBehaviour
     void OnCollisionEnter(Collision col)
     {
         if(col.gameObject.CompareTag("ground")) {
-            secondCheckpoint.transform.position = checkpoint.transform.position;
+            //occasional checkpoints
+            checkpointCounter++;
+            if(checkpointCounter > 12) {
+                farCheckpoint.transform.position = checkpoint.transform.position;
+                checkpointCounter = 0;
+            }
+
             checkpoint.transform.position = new Vector3(col.gameObject.transform.position.x, col.gameObject.transform.position.y + (col.gameObject.transform.localScale.y / 1.5f), col.gameObject.transform.position.z);
         }
     }
@@ -47,7 +54,7 @@ public class CheckpointManager : MonoBehaviour
         respawnSound.Play();
         
         //send back to checkpoint once animation/sound has played
-        transform.position = secondCheckpoint.transform.position;
+        transform.position = farCheckpoint.transform.position;
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
     }
