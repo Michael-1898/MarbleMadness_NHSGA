@@ -171,15 +171,8 @@ public class PlayerMove : MonoBehaviour
             || collision.gameObject.tag == "enemy"
             )
         {
-            
-            //Debug.Log(normal);
-            //Debug.Log("c1:" + (collision.gameObject.tag == "ground") + ", c2: " + (normal != transform.up) + ", c3: " + (collision.gameObject.tag == "enemy"));
-            rb.AddForce(normal * pooshAmount, ForceMode.Impulse);
-        } else
-        {
-            
+            rb.AddForce(normal * pooshAmount * (collision.gameObject.tag == "enemy" ? 2 : 1), ForceMode.Impulse);
         }
-        
     }
 
     //  (\ /)
