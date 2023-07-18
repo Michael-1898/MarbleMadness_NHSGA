@@ -32,6 +32,7 @@ public class UITimer : MonoBehaviour
     [SerializeField] AudioSource timerTick;
     private bool isTicking = false;
     [SerializeField] AudioSource bgMusic;
+    [SerializeField] AudioSource winSound;
 
     // Start is called before the first frame update
     void Start()
@@ -67,6 +68,11 @@ public class UITimer : MonoBehaviour
 
         if(timerFull && playerHasMoved) {
             DecreaseTimer();
+        }
+
+        if(player.GetComponent<PlayerMove>().hasBeenInGoal == true) {
+            bgMusic.Stop();
+            winSound.Play();
         }
     }
 

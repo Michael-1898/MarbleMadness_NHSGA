@@ -23,6 +23,7 @@ public class PlayerMove : MonoBehaviour
     public bool hasBeenInGoal = false;
     [SerializeField] float topSpeed;
     public bool canMove = false;
+    [SerializeField] float pooshAmount;
 
     //gravity
     private float gravity = 9.81f;
@@ -128,8 +129,6 @@ public class PlayerMove : MonoBehaviour
             gameObject.GetComponent<Rigidbody>().useGravity = false;
         }
     }
-
-    public int pooshAmount;
 
     private void OnCollisionExit(Collision collision)
     {

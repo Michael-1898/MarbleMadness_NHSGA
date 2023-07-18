@@ -60,7 +60,7 @@ public class SlinkyAttack : MonoBehaviour
             anim.SetBool("isFalling", false);
         }
         
-        if(attkTimer >= attkCooldown && !isJumping) {
+        if(attkTimer >= attkCooldown && !isJumping && !player.GetComponent<PlayerMove>().hasBeenInGoal) {
             Jump();
             attkTimer = 0;
             groundedTimer = groundedCooldown;

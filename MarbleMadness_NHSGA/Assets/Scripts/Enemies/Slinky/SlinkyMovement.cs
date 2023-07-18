@@ -13,6 +13,7 @@ public class SlinkyMovement : MonoBehaviour
     private Rigidbody rb;
 
     //aggro
+    private GameObject player;
     private Transform playerTransform;
     [SerializeField] float aggroRadius;
 
@@ -25,6 +26,7 @@ public class SlinkyMovement : MonoBehaviour
     {
         rb = slinky.GetComponent<Rigidbody>();
         playerTransform = GameObject.FindWithTag("Player").transform;
+        player = GameObject.FindWithTag("Player");
     }
 
     void OnEnable()
@@ -52,7 +54,9 @@ public class SlinkyMovement : MonoBehaviour
     private void FixedUpdate()
     {
         //move towards current target position
-        rb.MovePosition(Vector3.MoveTowards(slinky.transform.position, currentTarget, speed * Time.fixedDeltaTime));
+        if(player.GetComponent<PlayerMove>().hasBeenInGoal == false) {
+            rb.MovePosition(Vector3.MoveTowards(slinky.transform.position, currentTarget, speed * Time.fixedDeltaTime));
+        }
     }
 
     private void SetNextTarget()
