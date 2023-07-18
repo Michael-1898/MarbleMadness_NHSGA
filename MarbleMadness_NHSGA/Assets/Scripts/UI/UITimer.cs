@@ -100,6 +100,7 @@ public class UITimer : MonoBehaviour
             timerTxt.GetComponent<TMP_Text>().text = "" + levelTime;
             timer = levelTime;
             timerFull = true;
+            
         }
 
         //decrease disclaimer time
@@ -138,9 +139,7 @@ public class UITimer : MonoBehaviour
 
     void EnablePlayer()
     {
-        startTimer += Time.deltaTime;
-
-        if(startTimer > 5f && !playerReady) {
+        if(timerFull && !playerReady) {
             playerReady = true;
             playerOrigin = player.transform.position;
         }
