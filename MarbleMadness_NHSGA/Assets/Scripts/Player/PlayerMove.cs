@@ -166,10 +166,18 @@ public class PlayerMove : MonoBehaviour
         {
             Vector3 normal = collision.contacts[0].normal;
             Transform transform = collision.gameObject.transform;
-            if (normal == transform.forward) rb.AddForce(transform.forward * pooshAmount, ForceMode.Impulse);
-            else if (normal == -transform.forward) rb.AddForce(-transform.forward * pooshAmount, ForceMode.Impulse);
-            else if (normal == transform.right) rb.AddForce(transform.right * pooshAmount, ForceMode.Impulse);
-            else if (normal == -transform.right) rb.AddForce(-transform.right * pooshAmount, ForceMode.Impulse);
+            if (normal == transform.forward) {
+                rb.AddForce(transform.forward * pooshAmount, ForceMode.Impulse);
+            }
+            else if (normal == -transform.forward) {
+                rb.AddForce(-transform.forward * pooshAmount, ForceMode.Impulse);
+            }
+            else if (normal == transform.right) {
+                rb.AddForce(transform.right * pooshAmount, ForceMode.Impulse);
+            }
+            else if (normal == -transform.right) {
+                rb.AddForce(-transform.right * pooshAmount, ForceMode.Impulse);
+            }
         }
     }
 

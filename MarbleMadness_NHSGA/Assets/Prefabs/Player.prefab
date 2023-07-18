@@ -143,11 +143,12 @@ MonoBehaviour:
   moveForce: 2
   hasBeenInGoal: 0
   topSpeed: 6
+  canMove: 0
   gravityMultiplier: 2
   container: {fileID: 5106586223276465870}
   dizzyFX: {fileID: 3596851506680046058, guid: 11eead40bcc1519438549b78813703e1, type: 3}
   winDisplay: {fileID: 0}
-  pooshAmount: 13
+  pooshAmount: 15
 --- !u!114 &8384036791371797074
 MonoBehaviour:
   m_ObjectHideFlags: 0
