@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1342729557033499858}
   - component: {fileID: 2669947376787600247}
   - component: {fileID: 209832687361968061}
+  - component: {fileID: 7500635783261031461}
+  - component: {fileID: 7996153098099390729}
   m_Layer: 0
   m_Name: Earth_Ramp_Outside_Half
   m_TagString: Untagged
@@ -83,3 +85,33 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7500635783261031461
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867170612931618408}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8311251021610732131, guid: 890c0e1252087b242b9df1e4ba5c7adb, type: 3}
+--- !u!54 &7996153098099390729
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867170612931618408}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
