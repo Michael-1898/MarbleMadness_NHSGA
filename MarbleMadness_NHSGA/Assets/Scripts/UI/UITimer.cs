@@ -10,6 +10,7 @@ public class UITimer : MonoBehaviour
     [SerializeField] GameObject timerTxt;
     [SerializeField] GameObject timeDisclaimer;
     [SerializeField] GameObject disclaimerBG;
+    [SerializeField] GameObject gameOverDisplay;
 
     //timing and display
     private float timer;
@@ -17,6 +18,7 @@ public class UITimer : MonoBehaviour
     private bool disclaimerDone = false;
     private bool timerFull = false;
     [SerializeField] float levelTime;
+    private bool gameIsOver = false;
 
     //player enabling
     private GameObject player;
@@ -25,15 +27,26 @@ public class UITimer : MonoBehaviour
     private float startTimer;
     private bool playerReady = false;
 
+    //sound
+    [SerializeField] AudioSource fillTimer;
+    [SerializeField] AudioSource timerTick;
+    private bool isTicking = false;
+    [SerializeField] AudioSource bgMusic;
+
     // Start is called before the first frame update
     void Start()
     {
+        gameOverDisplay.SetActive(false);
         player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(player.GetComponent<PlayerMove>().hasBeenInGoal == true) {
+            gameIsOver = true;
+        }
+
         EnablePlayer();
 
         if(playerReady) {
@@ -74,12 +87,17 @@ public class UITimer : MonoBehaviour
 
     void FillUpTimer()
     {
+        if(timer == 0) {
+            fillTimer.Play();
+        }
+
         //increase timer
-        timer += 25 * Time.deltaTime;
+        timer += 12.5f * Time.deltaTime;
         timerTxt.GetComponent<TMP_Text>().text = "<mspace=21pxem>" + (Mathf.Round(timer * 100f) / 100f).ToString("f2");
         
-        if(timer >= 60) {
-            timerTxt.GetComponent<TMP_Text>().text = "60";
+        if(timer > levelTime) {
+            timerTxt.GetComponent<TMP_Text>().text = "" + levelTime;
+            timer = levelTime;
             timerFull = true;
         }
 
@@ -93,8 +111,21 @@ public class UITimer : MonoBehaviour
 
     void DecreaseTimer()
     {
-        timer -= Time.deltaTime;
-        timerTxt.GetComponent<TMP_Text>().text = "<mspace=21pxem>" + (Mathf.Round(timer * 100f) / 100f).ToString("f2");
+        if(timer <= 5 && !isTicking) {
+            timerTick.Play();
+            isTicking = true;
+        }
+
+        if(!gameIsOver) {
+            timer -= Time.deltaTime;
+            timerTxt.GetComponent<TMP_Text>().text = "<mspace=21pxem>" + (Mathf.Round(timer * 100f) / 100f).ToString("f2");
+        }
+
+        if(timer <= 0 && !gameIsOver) {
+            timerTick.Stop();
+            gameIsOver = true;
+            GameOver();
+        }
     }
 
     void CheckIfPlayerMoved()
@@ -117,5 +148,12 @@ public class UITimer : MonoBehaviour
             playerReady = true;
             playerOrigin = player.transform.position;
         }
+    }
+
+    void GameOver()
+    {
+        gameOverDisplay.SetActive(true);
+        player.GetComponent<PlayerMove>().enabled = false;
+        bgMusic.Stop();
     }
 }

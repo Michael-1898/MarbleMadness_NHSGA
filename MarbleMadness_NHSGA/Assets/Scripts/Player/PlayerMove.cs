@@ -20,7 +20,7 @@ public class PlayerMove : MonoBehaviour
     private Vector3 moveRawInput;
     private Vector3 moveDirection;
     [SerializeField] float moveForce;
-    private bool hasBeenInGoal = false;
+    public bool hasBeenInGoal = false;
     [SerializeField] float topSpeed;
 
     //gravity
@@ -29,13 +29,18 @@ public class PlayerMove : MonoBehaviour
     private bool gravityOn = true;
     [SerializeField] GameObject container;
 
+    //FX
+    [SerializeField] GameObject dizzyFX;
+
+    //misc
     private float yOnExit = 0;
     private int numOfColliders = 0;
+    [SerializeField] GameObject winDisplay;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        winDisplay.SetActive(false);
     }
 
     // Update is called once per frame
@@ -45,12 +50,12 @@ public class PlayerMove : MonoBehaviour
         moveDirection = new Vector3(moveDirection.x, 0, moveDirection.z); //stop move direction from movign player upward
         
 
-        if(rb.velocity.magnitude > 0.4f && numOfColliders > 0 && !rollSoundPlaying) {
+        if(rb.velocity.magnitude > 2f && numOfColliders > 0 && !rollSoundPlaying) {
             marbleRoll.Play();
             rollSoundPlaying = true;
         }
 
-        if((rb.velocity.magnitude < 0.4f || numOfColliders < 1) && rollSoundPlaying) {
+        if((rb.velocity.magnitude < 2f || numOfColliders < 1) && rollSoundPlaying) {
             marbleRoll.Stop();
             rollSoundPlaying = false;
         }
@@ -99,6 +104,7 @@ public class PlayerMove : MonoBehaviour
                 if (distance > 3 && distance < 5) {
                     Debug.Log("dizzy");
                     dizzySound.Play();
+                    Instantiate(dizzyFX, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
                 }
                 else if (distance > 5) {
                     Debug.Log("crack");
@@ -182,6 +188,8 @@ public class PlayerMove : MonoBehaviour
     void GoalReached()
     {
         rb.velocity = Vector3.zero;
-        rb.AddForce(Vector3.up * 10, ForceMode.VelocityChange);
+        moveForce = 0;
+
+        winDisplay.SetActive(true);
     }
 }
