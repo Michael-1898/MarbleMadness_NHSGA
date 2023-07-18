@@ -44,8 +44,10 @@ public class UITimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(player.GetComponent<PlayerMove>().hasBeenInGoal == true) {
+        if(player.GetComponent<PlayerMove>().hasBeenInGoal == true && !gameIsOver) {
             gameIsOver = true;
+            winSound.Play();
+            bgMusic.Stop();
         }
 
         EnablePlayer();
@@ -68,11 +70,6 @@ public class UITimer : MonoBehaviour
 
         if(timerFull && playerHasMoved) {
             DecreaseTimer();
-        }
-
-        if(player.GetComponent<PlayerMove>().hasBeenInGoal == true) {
-            bgMusic.Stop();
-            winSound.Play();
         }
     }
 
