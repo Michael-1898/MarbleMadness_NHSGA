@@ -23,5 +23,9 @@ public class DeathZone : MonoBehaviour
         if(col.gameObject.CompareTag("Player")) {
             player.GetComponent<CheckpointManager>().SendToCheckpoint();
         }
+
+        if(col.gameObject.CompareTag("enemy")) {
+            Destroy(col.gameObject);
+        }
     }
 }
