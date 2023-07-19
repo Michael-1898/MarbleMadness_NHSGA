@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 191380371609962889}
   - component: {fileID: 3521334934789231408}
   - component: {fileID: 642877854656524300}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Earth_Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 209832687361968061}
   - component: {fileID: 7500635783261031461}
   - component: {fileID: 7996153098099390729}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Earth_Ramp_Outside_Half
   m_TagString: ground
   m_Icon: {fileID: 0}

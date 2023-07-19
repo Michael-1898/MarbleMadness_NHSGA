@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8492152548758128313}
   - component: {fileID: 4994077633713638175}
   - component: {fileID: -6204002541946482793}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Earth_Ramp_Outside
   m_TagString: ground
   m_Icon: {fileID: 0}

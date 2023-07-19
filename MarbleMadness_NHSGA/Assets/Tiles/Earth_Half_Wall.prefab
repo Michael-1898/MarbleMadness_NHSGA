@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 544895443095723106}
   - component: {fileID: 8456346725294812788}
   - component: {fileID: -9189224810812082720}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Earth_Half_Wall
   m_TagString: ground
   m_Icon: {fileID: 0}
