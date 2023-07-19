@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3957029304080492112}
   - component: {fileID: 8494002695175286274}
   - component: {fileID: 4672739647532404420}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Earth_Ramp_Half
   m_TagString: ground
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 1638152456047300534}
   - component: {fileID: 4194037619574223760}
   - component: {fileID: 3512001164399625325}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: ramp
   m_Icon: {fileID: 0}

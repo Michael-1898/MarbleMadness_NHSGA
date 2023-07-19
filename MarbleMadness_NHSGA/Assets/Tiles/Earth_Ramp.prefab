@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1573294454120886960}
   - component: {fileID: 122934429314454329}
   - component: {fileID: 8334138475919937598}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: ramp
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 2757502488059376793}
   - component: {fileID: 2089220517985814046}
   - component: {fileID: 4158034296955692856}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Earth_Ramp
   m_TagString: ground
   m_Icon: {fileID: 0}
