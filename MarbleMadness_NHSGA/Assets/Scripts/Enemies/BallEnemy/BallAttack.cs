@@ -42,7 +42,10 @@ public class BallAttack : MonoBehaviour
 
     void CheckAggro()
     {
-        if(Vector3.Distance(transform.position, playerPosition.position) > aggroRadius) {
+        var ballMovement = gameObject.GetComponent<BallMovement>();
+        if (Vector3.Distance(transform.position, playerPosition.position) > aggroRadius
+            || Vector3.Distance(transform.position, ballMovement.origin) > ballMovement.boundSize
+        ) {
             //enable movescript
             this.gameObject.GetComponent<BallMovement>().enabled = true;
         }
