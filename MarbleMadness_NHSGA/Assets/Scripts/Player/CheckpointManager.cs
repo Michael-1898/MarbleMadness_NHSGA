@@ -10,6 +10,7 @@ public class CheckpointManager : MonoBehaviour
     [SerializeField] Rigidbody rb;
 
     [SerializeField] AudioSource respawnSound;
+    [SerializeField] GameObject deathFX;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +53,10 @@ public class CheckpointManager : MonoBehaviour
     {
         //play death animation and sound or whatever
         respawnSound.Play();
+
+        GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<PlayerMove>().canMove = false;
+        Instantiate(deathFX, transform.position, Quaternion.identity);
         
         //send back to checkpoint once animation/sound has played
         transform.position = farCheckpoint.transform.position;

@@ -69,7 +69,7 @@ public class SlinkyAttack : MonoBehaviour
         //if player is outside aggro range return to movement script
         var slinkyMovement = SlinkyMover.GetComponent<SlinkyMovement>();
         if((Vector3.Distance(rb.position, playerTransform.position) > aggroRadius && !isJumping)
-            || (Vector3.Distance(rb.position, slinkyMovement.origin) > slinkyMovement.boundSize && !isJumping)
+            || (Vector3.Distance(rb.position, slinkyMovement.origin) > slinkyMovement.boundSize && !isJumping || !player.GetComponent<PlayerMove>().canMove)
         ) {
             SlinkyMover.GetComponent<SlinkyMovement>().enabled = true;
         }
