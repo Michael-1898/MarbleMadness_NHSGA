@@ -104,8 +104,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1537283564660394443}
-  - component: {fileID: 6855705641642552553}
   - component: {fileID: 3923060611727561021}
+  - component: {fileID: 1143752496597789205}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -128,19 +128,6 @@ Transform:
   m_Father: {fileID: 6337021561008335010}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6855705641642552553
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2311725959731333585}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.27660277, z: 0.6733844}
-  m_Center: {x: 0, y: 0.12737016, z: 0}
 --- !u!114 &3923060611727561021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +140,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b08a08a197c58d4ebabcfb7de2eda70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &1143752496597789205
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2311725959731333585}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2563606
+  m_Center: {x: 0, y: 0.24363941, z: 0}
 --- !u!1 &3736396422017607779
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,7 +258,7 @@ MonoBehaviour:
   anim: {fileID: 5356986045541255380}
   marbleCollision: {fileID: 783740515514981279}
   aggroRadius: 6
-  attkCooldown: 1
+  attkCooldown: 1.5
   jumpForce: 10
   lateralAttkSpeed: 350
   groundCheck: {fileID: 7630612626286511841}
@@ -702,6 +702,8 @@ MonoBehaviour:
   slinky: {fileID: 6681740015331242520}
   speed: 1.5
   aggroRadius: 5
+  origin: {x: 0, y: 0, z: 0}
+  boundSize: 5
 --- !u!1 &7630612626286511846
 GameObject:
   m_ObjectHideFlags: 0

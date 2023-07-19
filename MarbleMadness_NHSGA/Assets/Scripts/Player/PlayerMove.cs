@@ -70,7 +70,7 @@ public class PlayerMove : MonoBehaviour
     void FixedUpdate()
     {
         //rb.AddForce(Vector3.down * gravity * Time.deltaTime, ForceMode.Acceleration);
-        if(canMove || !isDizzy) {
+        if(canMove && !isDizzy) {
             rb.AddForce(moveDirection * moveForce, ForceMode.Impulse);
         }
 

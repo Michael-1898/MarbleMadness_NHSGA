@@ -123,6 +123,7 @@ public class SlinkyAttack : MonoBehaviour
             marbleCollision.Play();
 
             player.GetComponent<CheckpointManager>().SendToFarCheckpoint();
+            SlinkyMover.GetComponent<SlinkyMovement>().enabled = true;
         }
     }
 
