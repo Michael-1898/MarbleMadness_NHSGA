@@ -35,7 +35,7 @@ public class CheckpointManager : MonoBehaviour
                 checkpointCounter = 0;
             }
 
-            checkpoint.transform.position = new Vector3(col.gameObject.transform.position.x, col.gameObject.transform.position.y + (col.gameObject.transform.localScale.y / 1.5f), col.gameObject.transform.position.z);
+            checkpoint.transform.position = new Vector3(col.gameObject.transform.position.x, col.gameObject.transform.position.y + (col.gameObject.transform.localScale.y / 2f) + 0.5f, col.gameObject.transform.position.z);
         }
     }
 
