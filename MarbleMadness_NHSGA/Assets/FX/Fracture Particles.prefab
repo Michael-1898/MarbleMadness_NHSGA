@@ -4826,3 +4826,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fxDuration: 0.5
+  spawnFX: {fileID: 3348888634350666570, guid: 3a5517030df439a4192f8d51f5e7cc62, type: 3}

@@ -7,6 +7,8 @@ public class ShatterFX : MonoBehaviour
     private float FXTimer;
     [SerializeField] float fxDuration;
 
+    [SerializeField] GameObject spawnFX;
+
     private GameObject player;
 
     // Start is called before the first frame update
@@ -22,8 +24,7 @@ public class ShatterFX : MonoBehaviour
         if(FXTimer >= fxDuration) {
             RespawnPlayer();
 
-            player.GetComponent<MeshRenderer>().enabled = true;
-            player.GetComponent<PlayerMove>().canMove = true;
+            Instantiate(spawnFX, player.transform.position, Quaternion.identity);
 
             Destroy(gameObject);
         }
@@ -36,5 +37,8 @@ public class ShatterFX : MonoBehaviour
         } else {
             player.transform.position = player.GetComponent<CheckpointManager>().getCheckpoint();
         }
+
+        player.GetComponent<MeshRenderer>().enabled = true;
+        player.GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 }
