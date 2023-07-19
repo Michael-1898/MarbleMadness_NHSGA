@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7996153098099390729}
   m_Layer: 0
   m_Name: Earth_Ramp_Outside_Half
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
