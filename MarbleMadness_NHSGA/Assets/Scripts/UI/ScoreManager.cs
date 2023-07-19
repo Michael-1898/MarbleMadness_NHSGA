@@ -11,8 +11,8 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindWithTag("Player");
         InvokeRepeating("SpeedScore", 0, 1);
-        player = gameObject.GetComponent<PlayerMove>().gameObject;
     }
 
     // Update is called once per frame
