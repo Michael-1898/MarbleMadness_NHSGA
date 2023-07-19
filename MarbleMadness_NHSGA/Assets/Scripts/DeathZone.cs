@@ -6,6 +6,7 @@ public class DeathZone : MonoBehaviour
 {
     private GameObject player;
 
+    [SerializeField] AudioSource marbleBreak;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,7 @@ public class DeathZone : MonoBehaviour
     {
         if(col.gameObject.CompareTag("Player") && player.GetComponent<PlayerMove>().canMove) {
             player.GetComponent<CheckpointManager>().SendToCheckpoint();
+            marbleBreak.Play();
         }
 
         if(col.gameObject.CompareTag("enemy")) {
