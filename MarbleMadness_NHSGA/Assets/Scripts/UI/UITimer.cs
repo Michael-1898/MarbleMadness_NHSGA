@@ -33,6 +33,7 @@ public class UITimer : MonoBehaviour
     private bool isTicking = false;
     [SerializeField] AudioSource bgMusic;
     [SerializeField] AudioSource winSound;
+    [SerializeField] AudioSource loseSound;
 
     // Start is called before the first frame update
     void Start()
@@ -153,5 +154,6 @@ public class UITimer : MonoBehaviour
         gameOverDisplay.SetActive(true);
         player.GetComponent<PlayerMove>().enabled = false;
         bgMusic.Stop();
+        loseSound.Play();
     }
 }
