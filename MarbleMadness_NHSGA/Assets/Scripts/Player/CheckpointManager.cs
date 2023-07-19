@@ -10,6 +10,8 @@ public class CheckpointManager : MonoBehaviour
     [SerializeField] Rigidbody rb;
 
     [SerializeField] AudioSource respawnSound;
+    [SerializeField] GameObject deathFX;
+    public bool isFar;
 
     // Start is called before the first frame update
     void Start()
@@ -41,21 +43,43 @@ public class CheckpointManager : MonoBehaviour
     {
         //play death animation and sound or whatever
         respawnSound.Play();
-        
-        //send back to checkpoint once animation/sound has played
-        transform.position = checkpoint.transform.position;
+
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
+        GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<PlayerMove>().canMove = false;
+        Instantiate(deathFX, transform.position, Quaternion.identity);
+        
+        //send back to checkpoint once animation/sound has played
+        // transform.position = checkpoint.transform.position;
+        // rb.velocity = Vector3.zero;
+        // rb.angularVelocity = Vector3.zero;
     }
 
     public void SendToFarCheckpoint()
     {
         //play death animation and sound or whatever
         respawnSound.Play();
-        
-        //send back to checkpoint once animation/sound has played
-        transform.position = farCheckpoint.transform.position;
+
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
+        GetComponent<MeshRenderer>().enabled = false;
+        GetComponent<PlayerMove>().canMove = false;
+        Instantiate(deathFX, transform.position, Quaternion.identity);
+        
+        //send back to checkpoint once animation/sound has played
+        // transform.position = farCheckpoint.transform.position;
+        // rb.velocity = Vector3.zero;
+        // rb.angularVelocity = Vector3.zero;
+    }
+
+    public Vector3 getCheckpoint()
+    {
+        return checkpoint.transform.position;
+    }
+
+    public Vector3 getFarCheckpoint()
+    {
+        return farCheckpoint.transform.position;
     }
 }

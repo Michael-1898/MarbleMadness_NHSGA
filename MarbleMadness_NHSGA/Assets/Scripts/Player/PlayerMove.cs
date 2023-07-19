@@ -114,7 +114,7 @@ public class PlayerMove : MonoBehaviour
             if (numOfColliders == 1)
             {
                 float distance = yOnExit - gameObject.transform.position.y;
-                if (distance > 1.7f && distance < 3f) {
+                if (distance > 1.65f && distance < 3f) {
                     Debug.Log("dizzy");
                     dizzySound.Play();
                     isDizzy = true;

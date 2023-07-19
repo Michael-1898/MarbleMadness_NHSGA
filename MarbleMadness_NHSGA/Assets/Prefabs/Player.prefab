@@ -195,6 +195,7 @@ MonoBehaviour:
   farCheckpoint: {fileID: 7887722722808396931}
   rb: {fileID: 7713469700085993340}
   respawnSound: {fileID: 209265874890891389}
+  deathFX: {fileID: 2448555384953841560, guid: fa50ee9882fb33e4490f9108bebb7321, type: 3}
 --- !u!82 &4410036344936897381
 AudioSource:
   m_ObjectHideFlags: 0
