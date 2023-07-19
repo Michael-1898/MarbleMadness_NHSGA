@@ -53,7 +53,7 @@ public class UITimer : MonoBehaviour
 
         EnablePlayer();
 
-        if(playerReady && player.transform.position == playerOrigin) {
+        if(playerReady && !playerHasMoved) {
             CheckIfPlayerMoved();
             player.GetComponent<PlayerMove>().canMove = true;
         }
