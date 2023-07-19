@@ -20,9 +20,21 @@ public class ShatterFX : MonoBehaviour
     {
         FXTimer += Time.deltaTime;
         if(FXTimer >= fxDuration) {
+            RespawnPlayer();
+
             player.GetComponent<MeshRenderer>().enabled = true;
             player.GetComponent<PlayerMove>().canMove = true;
+
             Destroy(gameObject);
+        }
+    }
+
+    void RespawnPlayer()
+    {
+        if(player.GetComponent<CheckpointManager>().isFar) {
+            player.transform.position = player.GetComponent<CheckpointManager>().getFarCheckpoint();
+        } else {
+            player.transform.position = player.GetComponent<CheckpointManager>().getCheckpoint();
         }
     }
 }
