@@ -140,7 +140,7 @@ MonoBehaviour:
   breakSound: {fileID: 8268946151957866445}
   dizzySound: {fileID: 2490560347440393055}
   fallSound: {fileID: 3577033115177778670}
-  moveForce: 0.005
+  moveForce: 0.0035
   hasBeenInGoal: 0
   topSpeed: 7
   canMove: 0

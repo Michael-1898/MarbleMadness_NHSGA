@@ -114,14 +114,14 @@ public class PlayerMove : MonoBehaviour
             if (numOfColliders == 1)
             {
                 float distance = yOnExit - gameObject.transform.position.y;
-                if (distance > 3 && distance < 5) {
+                if (distance > 1.7f && distance < 3f) {
                     Debug.Log("dizzy");
                     dizzySound.Play();
                     isDizzy = true;
                     Invoke("Dizzynt", 2);
                     Instantiate(dizzyFX, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
                 }
-                else if (distance > 5) {
+                else if (distance > 3f) {
                     Debug.Log("crack");
 
                     //play break sound
