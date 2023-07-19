@@ -50,8 +50,17 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveDirection = cam.transform.TransformDirection(moveRawInput); //set move direction relative to camera veiw
-        moveDirection = new Vector3(moveDirection.x, 0, moveDirection.z); //stop move direction from movign player upward
+        // //WASD movement
+        // moveDirection = cam.transform.TransformDirection(moveRawInput); //set move direction relative to camera veiw
+        // moveDirection = new Vector3(moveDirection.x, 0, moveDirection.z); //stop move direction from movign player upward
+
+        //mouse movement
+        moveRawInput = Input.mousePosition;
+        Vector3 ballPosition = cam.WorldToScreenPoint(transform.position);
+        moveRawInput.x -= ballPosition.x;
+        moveRawInput.y -= ballPosition.y;
+        moveDirection = new Vector3(moveRawInput.x, 0, moveRawInput.y); //stop move direction from movign player upward
+        moveDirection = cam.transform.TransformDirection(moveDirection);
         
 
         if(rb.velocity.magnitude > 2f && numOfColliders > 0 && !rollSoundPlaying) {
@@ -80,10 +89,11 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    void OnMove(InputValue value)
-    {
-        moveRawInput = new Vector3(value.Get<Vector2>().x, 0, value.Get<Vector2>().y);
-    }
+    // //WASD movement
+    // void OnMove(InputValue value)
+    // {
+    //     moveRawInput = new Vector3(value.Get<Vector2>().x, 0, value.Get<Vector2>().y);
+    // }
 
     private void OnCollisionEnter(Collision collision)
     {
