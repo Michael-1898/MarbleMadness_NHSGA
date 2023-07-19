@@ -26,6 +26,7 @@ public class PlayerMove : MonoBehaviour
     public bool canMove = false;
     [SerializeField] float pooshAmount;
     private bool isDizzy = false;
+    private float distance;
 
     //gravity
     private float gravity = 9.81f;
@@ -113,7 +114,8 @@ public class PlayerMove : MonoBehaviour
             numOfColliders += 1;
             if (numOfColliders == 1)
             {
-                float distance = yOnExit - gameObject.transform.position.y;
+                distance = yOnExit - gameObject.transform.position.y;
+                print(distance);
                 if (distance > 1.4f && distance < 3f) {
                     Debug.Log("dizzy");
                     dizzySound.Play();
@@ -211,5 +213,10 @@ public class PlayerMove : MonoBehaviour
     void Dizzynt()
     {
         isDizzy = false;
+    }
+
+    public float getDistance()
+    {
+        return distance;
     }
 }

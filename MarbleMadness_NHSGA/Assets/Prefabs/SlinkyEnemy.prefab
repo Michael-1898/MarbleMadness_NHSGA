@@ -260,7 +260,7 @@ MonoBehaviour:
   aggroRadius: 6
   attkCooldown: 1.5
   jumpForce: 10
-  lateralAttkSpeed: 350
+  lateralAttkSpeed: 290
   groundCheck: {fileID: 7630612626286511841}
   groundCheckRadius: 0.2
   groundMask:

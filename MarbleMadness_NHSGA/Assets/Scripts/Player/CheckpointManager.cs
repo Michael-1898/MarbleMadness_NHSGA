@@ -8,6 +8,7 @@ public class CheckpointManager : MonoBehaviour
     [SerializeField] GameObject farCheckpoint;
     private int checkpointCounter;
     [SerializeField] Rigidbody rb;
+    private GameObject player;
 
     [SerializeField] AudioSource respawnSound;
     [SerializeField] GameObject deathFX;
@@ -16,7 +17,7 @@ public class CheckpointManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
@@ -27,7 +28,7 @@ public class CheckpointManager : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        if(col.gameObject.CompareTag("ground")) {
+        if(col.gameObject.CompareTag("ground") && player.GetComponent<PlayerMove>().getDistance() < 3) {
             //occasional checkpoints
             checkpointCounter++;
             if(checkpointCounter > 17) {
