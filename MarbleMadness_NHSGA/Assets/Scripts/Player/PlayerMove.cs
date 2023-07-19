@@ -25,6 +25,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] float topSpeed;
     public bool canMove = false;
     [SerializeField] float pooshAmount;
+    private bool isDizzy = false;
 
     //gravity
     private float gravity = 9.81f;
@@ -69,7 +70,7 @@ public class PlayerMove : MonoBehaviour
     void FixedUpdate()
     {
         //rb.AddForce(Vector3.down * gravity * Time.deltaTime, ForceMode.Acceleration);
-        if(canMove) {
+        if(canMove || !isDizzy) {
             rb.AddForce(moveDirection * moveForce, ForceMode.Impulse);
         }
 
@@ -106,6 +107,8 @@ public class PlayerMove : MonoBehaviour
                 if (distance > 3 && distance < 5) {
                     Debug.Log("dizzy");
                     dizzySound.Play();
+                    isDizzy = true;
+                    Invoke("Dizzynt", 2);
                     Instantiate(dizzyFX, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
                 }
                 else if (distance > 5) {
@@ -193,5 +196,10 @@ public class PlayerMove : MonoBehaviour
         moveForce = 0;
 
         winDisplay.SetActive(true);
+    }
+
+    void Dizzynt()
+    {
+        isDizzy = false;
     }
 }
