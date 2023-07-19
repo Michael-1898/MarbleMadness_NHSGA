@@ -15,6 +15,10 @@ public class BallMovement : MonoBehaviour
     [SerializeField] float xBound;
     [SerializeField] float zBound;
 
+    //bounds
+    public Vector3 origin;
+    public int boundSize;
+
     //aggro
     [SerializeField] float aggroRadius;
     private Transform playerPosition;
@@ -23,6 +27,7 @@ public class BallMovement : MonoBehaviour
     void Start()
     {
         playerPosition = GameObject.FindWithTag("Player").transform;
+        origin = gameObject.transform.position;
     }
 
     void OnEnable()
@@ -76,7 +81,9 @@ public class BallMovement : MonoBehaviour
 
     void CheckAggro()
     {
-        if(Vector3.Distance(transform.position, playerPosition.position) < aggroRadius) {
+        if (Vector3.Distance(transform.position, playerPosition.position) < aggroRadius
+            && Vector3.Distance(gameObject.transform.position, origin) < boundSize
+        ) {
             //enable attack script
             this.gameObject.GetComponent<BallAttack>().enabled = true;
         }

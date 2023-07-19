@@ -17,6 +17,10 @@ public class SlinkyMovement : MonoBehaviour
     private Transform playerTransform;
     [SerializeField] float aggroRadius;
 
+    //bounds
+    public Vector3 origin;
+    public int boundSize;
+
     //targeting
     private Vector3 currentTarget;
     private int currentTargetIndex = 0;
@@ -27,6 +31,7 @@ public class SlinkyMovement : MonoBehaviour
         rb = slinky.GetComponent<Rigidbody>();
         playerTransform = GameObject.FindWithTag("Player").transform;
         player = GameObject.FindWithTag("Player");
+        origin = gameObject.transform.position;
     }
 
     void OnEnable()
@@ -39,7 +44,9 @@ public class SlinkyMovement : MonoBehaviour
     void Update()
     {
         //if player is in aggro range go to attack behavior
-        if(Vector3.Distance(rb.position, playerTransform.position) < aggroRadius) {
+        if(Vector3.Distance(rb.position, playerTransform.position) < aggroRadius
+           && Vector3.Distance(gameObject.transform.position, origin) < boundSize
+        ) {
             slinky.GetComponent<SlinkyAttack>().enabled = true;
         }
 
