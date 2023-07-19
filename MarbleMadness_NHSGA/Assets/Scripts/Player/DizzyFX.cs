@@ -10,6 +10,7 @@ public class DizzyFX : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
+        Destroy(gameObject, 1);
     }
 
     // Update is called once per frame
