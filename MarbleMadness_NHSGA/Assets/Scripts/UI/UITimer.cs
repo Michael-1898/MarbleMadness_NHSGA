@@ -138,6 +138,7 @@ public class UITimer : MonoBehaviour
     {
         if(player.transform.position != playerOrigin && !playerHasMoved) {
             playerHasMoved = true;
+            bgMusic.Play();
         }
     }
 
