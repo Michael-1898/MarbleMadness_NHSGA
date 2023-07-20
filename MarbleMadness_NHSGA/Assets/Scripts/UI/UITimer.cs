@@ -18,7 +18,7 @@ public class UITimer : MonoBehaviour
     private bool disclaimerDone = false;
     private bool timerFull = false;
     [SerializeField] float levelTime;
-    private bool gameIsOver = false;
+    public bool gameIsOver = false;
 
     //player enabling
     private GameObject player;
