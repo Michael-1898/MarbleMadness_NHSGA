@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 1969200357867581729}
   - component: {fileID: 7855965896507519902}
   - component: {fileID: 236936170789641587}
+  - component: {fileID: 5562687321542081523}
   m_Layer: 0
   m_Name: Ball
   m_TagString: enemy
@@ -284,6 +285,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5562687321542081523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121489578927434321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85ac3cb8d9f9d4bbca1f17cc2400d630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: marble
 --- !u!1 &6868293409479278145
 GameObject:
   m_ObjectHideFlags: 0

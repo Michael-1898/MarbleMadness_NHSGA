@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DeathZone : MonoBehaviour
 {
+    public GameObject canvas;
     private GameObject player;
 
     [SerializeField] AudioSource marbleBreak;
@@ -11,6 +12,7 @@ public class DeathZone : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        canvas = GameObject.Find("Canvas");
     }
 
     // Update is called once per frame
@@ -26,7 +28,20 @@ public class DeathZone : MonoBehaviour
             marbleBreak.Play();
         }
 
-        if(col.gameObject.CompareTag("enemy")) {
+        var scoreManager = canvas.transform.GetChild(3).gameObject.GetComponent<ScoreManager>();
+        if (col.gameObject.CompareTag("enemy")) {
+            switch (col.gameObject.GetComponent<EnemyType>().GetType())
+            {
+                case "slinky":
+                    scoreManager.UpdateScore(2000);
+                    break;
+                case "marble":
+                    scoreManager.UpdateScore(1000);
+                    break;
+                default:
+                    break;
+            }
+
             Destroy(col.gameObject);
         }
     }
