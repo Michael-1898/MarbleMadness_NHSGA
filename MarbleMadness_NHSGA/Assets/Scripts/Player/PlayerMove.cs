@@ -73,6 +73,20 @@ public class PlayerMove : MonoBehaviour
             moveRawInput.y -= ballPosition.y;
             moveDirection = new Vector3(moveRawInput.x, moveRawInput.y, 0); //stop move direction from movign player upward
             moveDirection = cam.transform.TransformDirection(moveDirection);
+        } else if(gravityDir == new Vector3(1, 0, 0)) {
+            moveRawInput = Input.mousePosition;
+            Vector3 ballPosition = cam.WorldToScreenPoint(transform.position);
+            moveRawInput.x -= ballPosition.x;
+            moveRawInput.y -= ballPosition.y;
+            moveDirection = new Vector3(0, moveRawInput.y, moveRawInput.x); //stop move direction from movign player upward
+            moveDirection = cam.transform.TransformDirection(moveDirection);
+        } else if(gravityDir == new Vector3(-1, 0, 0)) {
+            moveRawInput = Input.mousePosition;
+            Vector3 ballPosition = cam.WorldToScreenPoint(transform.position);
+            moveRawInput.x -= ballPosition.x;
+            moveRawInput.y -= ballPosition.y;
+            moveDirection = new Vector3(0, moveRawInput.y, moveRawInput.x); //stop move direction from movign player upward
+            moveDirection = cam.transform.TransformDirection(moveDirection); 
         }
         
         
