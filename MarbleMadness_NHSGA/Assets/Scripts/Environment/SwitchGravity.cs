@@ -19,10 +19,17 @@ public class SwitchGravity : MonoBehaviour
     }
 
     //requires kinematic rigidbody
-    void OnCollisionEnter(Collision col)
+    // void OnCollisionEnter(Collision col)
+    // {
+    //     if(col.gameObject.CompareTag("Player")) {
+    //         gravityDirectionToSwitchTo = (col.contacts[0].normal).normalized * -1;
+    //         col.gameObject.GetComponent<PlayerMove>().SetGravity(gravityDirectionToSwitchTo);
+    //     }
+    // }
+
+    void OnTriggerEnter(Collider col)
     {
         if(col.gameObject.CompareTag("Player")) {
-            gravityDirectionToSwitchTo = (col.contacts[0].normal).normalized * -1;
             col.gameObject.GetComponent<PlayerMove>().SetGravity(gravityDirectionToSwitchTo);
         }
     }
