@@ -16,6 +16,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] AudioSource breakSound;
     [SerializeField] AudioSource dizzySound;
     [SerializeField] AudioSource fallSound;
+    [SerializeField] AudioSource collisionSound;
     
     //movement
     private Vector3 moveRawInput;
@@ -142,6 +143,10 @@ public class PlayerMove : MonoBehaviour
             gravityOn = false;
             gameObject.GetComponent<Rigidbody>().useGravity = false;
         }
+
+        if(!collision.gameObject.CompareTag("Player") && !collision.gameObject.CompareTag("ramp") && !collision.gameObject.CompareTag("ground") && !collision.gameObject.CompareTag("goal")) {
+            collisionSound.Play();
+        }
     }
 
     private void OnCollisionExit(Collision collision)
@@ -180,7 +185,7 @@ public class PlayerMove : MonoBehaviour
         Transform transform = collision.gameObject.transform;
 
         if (
-            (collision.gameObject.tag == "ground" && new List<Vector3>() { transform.right, -transform.right, transform.forward, -transform.forward }.Contains(normal))
+            (!collision.gameObject.CompareTag("ground") && !collision.gameObject.CompareTag("ramp") && new List<Vector3>() { transform.right, -transform.right, transform.forward, -transform.forward }.Contains(normal))
             || collision.gameObject.tag == "enemy"
             )
         {
