@@ -32,7 +32,8 @@ public class ScoreManager : MonoBehaviour
 
     void UpdateScore(int added)
     {
-        if (!timer.GetComponent<UITimer>().gameIsOver)
+        var uiTimer = timer.GetComponent<UITimer>();
+        if (!uiTimer.gameIsOver && uiTimer.playerReady)
         {
             score += added;
         }
