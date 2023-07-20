@@ -18848,10 +18848,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8879502446292381844, guid: 5e19282f231920944924c9fb58ad2baf, type: 3}
-      propertyPath: levelTime
-      value: 70
-      objectReference: {fileID: 0}
     - target: {fileID: 8879502446663565651, guid: 5e19282f231920944924c9fb58ad2baf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 0
