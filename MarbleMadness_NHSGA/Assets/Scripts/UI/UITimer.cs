@@ -81,6 +81,11 @@ public class UITimer : MonoBehaviour
         timer = time;
     }
 
+    public float GetTimer()
+    {
+        return timer;
+    }
+
     void DisplayDisclaimer()
     {
         if(disclaimerDuration > 0) {

@@ -266,6 +266,11 @@ public class PlayerMove : MonoBehaviour
         moveForce = 0;
 
         winDisplay.SetActive(true);
+
+        var timerManager = canvas.transform.GetChild(1).gameObject.GetComponent<UITimer>();
+        var scoreManager = canvas.transform.GetChild(3).gameObject.GetComponent<ScoreManager>();
+        scoreManager.UpdateScore(5000);
+        scoreManager.UpdateScore(100 * Mathf.FloorToInt(timerManager.GetTimer()));
     }
 
     void Dizzynt()
