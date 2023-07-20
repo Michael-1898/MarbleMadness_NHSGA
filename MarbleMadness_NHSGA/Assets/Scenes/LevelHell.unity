@@ -5194,11 +5194,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8977088837856761731, guid: 10d8bdbe395a08d40b75019b10a95abc, type: 3}
       propertyPath: gravityDirectionToSwitchTo.y
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8977088837856761731, guid: 10d8bdbe395a08d40b75019b10a95abc, type: 3}
       propertyPath: gravityDirectionToSwitchTo.z
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8977088837856761743, guid: 10d8bdbe395a08d40b75019b10a95abc, type: 3}
       propertyPath: m_Name
