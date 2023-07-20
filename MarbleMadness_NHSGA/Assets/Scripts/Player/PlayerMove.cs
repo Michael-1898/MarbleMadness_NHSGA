@@ -203,7 +203,13 @@ public class PlayerMove : MonoBehaviour
         if (collision.gameObject.tag == "ground" || collision.gameObject.tag == "ramp")
         {
             numOfColliders -= 1;
-            yOnExit = gameObject.transform.position.y;
+            if(gravityDir == new Vector3(0, -1, 0)) {
+                yOnExit = gameObject.transform.position.y;
+            } else if(gravityDir == new Vector3(0, 0, 1)) {
+                yOnExit = gameObject.transform.position.z;
+            } else if(gravityDir == new Vector3(1, 0, 0) || gravityDir == new Vector3(-1, 0, 0)) {
+                yOnExit = gameObject.transform.position.x;
+            } 
         }
         if (collision.gameObject.tag == "ramp")
         {
