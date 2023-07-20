@@ -33,6 +33,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] float gravityMultiplier;
     private bool gravityOn = true;
     [SerializeField] GameObject container;
+    private int gravityDir = 3;
 
     //FX
     [SerializeField] GameObject dizzyFX;
@@ -87,7 +88,7 @@ public class PlayerMove : MonoBehaviour
 
         //gravity
         if(gravityOn) {
-            rb.AddForce(-container.transform.up * gravity * gravityMultiplier, ForceMode.Acceleration);
+            ApplyGravity();
         }
     }
 
@@ -215,5 +216,24 @@ public class PlayerMove : MonoBehaviour
     public float getDistance()
     {
         return distance;
+    }
+
+    void ApplyGravity()
+    {
+        if(gravityDir == 1) {
+            rb.AddForce(container.transform.up * gravity * gravityMultiplier, ForceMode.Acceleration);
+        }
+
+        if(gravityDir == 2) {
+            rb.AddForce(container.transform.right * gravity * gravityMultiplier, ForceMode.Acceleration);
+        }
+
+        if(gravityDir == 3) {
+            rb.AddForce(-container.transform.up * gravity * gravityMultiplier, ForceMode.Acceleration);
+        }
+        
+        if(gravityDir == 4) {
+            rb.AddForce(-container.transform.right * gravity * gravityMultiplier, ForceMode.Acceleration);
+        }
     }
 }
