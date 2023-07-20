@@ -9,6 +9,7 @@ TagManager:
   - ground
   - ramp
   - enemy
+  - DeathZone
   layers:
   - Default
   - TransparentFX
