@@ -144,7 +144,7 @@ public class PlayerMove : MonoBehaviour
             gameObject.GetComponent<Rigidbody>().useGravity = false;
         }
 
-        if(!collision.gameObject.CompareTag("Player") && !collision.gameObject.CompareTag("ramp") && !collision.gameObject.CompareTag("ground") && !collision.gameObject.CompareTag("goal")) {
+        if(!collision.gameObject.CompareTag("Player") && !collision.gameObject.CompareTag("ramp") && !collision.gameObject.CompareTag("ground") && !collision.gameObject.CompareTag("goal") && !collision.gameObject.CompareTag("DeathZone")) {
             collisionSound.Play();
         }
     }
