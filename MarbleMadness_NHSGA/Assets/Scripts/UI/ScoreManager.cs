@@ -33,14 +33,12 @@ public class ScoreManager : MonoBehaviour
 
     public void UpdateScore(int added)
     {
-        print("baba booey");
         if (!hasBooledBefore) hasBooledBefore = true;
         else
         {
             var uiTimer = timer.GetComponent<UITimer>();
             if (!uiTimer.gameIsOver)
             {
-                print("ok");
                 score += added;
             }
         }
