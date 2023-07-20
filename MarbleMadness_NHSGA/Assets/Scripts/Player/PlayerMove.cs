@@ -33,7 +33,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] float gravityMultiplier;
     private bool gravityOn = true;
     [SerializeField] GameObject container;
-    private int gravityDir = 1;
+    private Vector3 gravityDir;
 
     //FX
     [SerializeField] GameObject dizzyFX;
@@ -88,7 +88,7 @@ public class PlayerMove : MonoBehaviour
 
         //gravity
         if(gravityOn) {
-            ApplyGravity();
+            rb.AddForce(-cam.transform.right * gravity * gravityMultiplier, ForceMode.Acceleration);
         }
     }
 
@@ -218,26 +218,7 @@ public class PlayerMove : MonoBehaviour
         return distance;
     }
 
-    void ApplyGravity()
-    {
-        if(gravityDir == 1) {
-            rb.AddForce(container.transform.up * gravity * gravityMultiplier, ForceMode.Acceleration);
-        }
-
-        if(gravityDir == 2) {
-            rb.AddForce(cam.transform.right * gravity * gravityMultiplier, ForceMode.Acceleration);
-        }
-
-        if(gravityDir == 3) {
-            rb.AddForce(-container.transform.up * gravity * gravityMultiplier, ForceMode.Acceleration);
-        }
-        
-        if(gravityDir == 4) {
-            rb.AddForce(-cam.transform.right * gravity * gravityMultiplier, ForceMode.Acceleration);
-        }
-    }
-
-    private void SetGravity(int direction)
+    public void SetGravity(Vector3 direction)
     {
         gravityDir = direction;
     }
