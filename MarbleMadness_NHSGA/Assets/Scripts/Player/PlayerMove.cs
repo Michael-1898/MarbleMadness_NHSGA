@@ -95,7 +95,7 @@ public class PlayerMove : MonoBehaviour
                 marbleRoll.Play();
                 rollSoundPlaying = true;
             }
-            marbleRoll.volume = rb.velocity.magnitude/(topSpeed+1);
+            marbleRoll.volume = rb.velocity.magnitude/(topSpeed+1.5f);
         }
 
         rb.velocity = Vector3.ClampMagnitude(rb.velocity, topSpeed);
