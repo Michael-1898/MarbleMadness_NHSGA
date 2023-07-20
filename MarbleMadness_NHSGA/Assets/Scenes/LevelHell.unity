@@ -616,6 +616,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hell_FireEmitter
       objectReference: {fileID: 0}
+    - target: {fileID: 8308763075787205353, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
 --- !u!1001 &25148510
@@ -969,6 +973,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hell_FireEmitter
       objectReference: {fileID: 0}
+    - target: {fileID: 8308763075787205353, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
 --- !u!1001 &55726264
@@ -1179,6 +1187,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hell_FireEmitter
       objectReference: {fileID: 0}
+    - target: {fileID: 8308763075787205353, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
 --- !u!1001 &70295400
@@ -1383,6 +1395,10 @@ PrefabInstance:
     - target: {fileID: 7516045497086380860, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
       propertyPath: m_Name
       value: Hell_FireEmitter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8308763075787205353, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
@@ -2702,6 +2718,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hell_FireEmitter
       objectReference: {fileID: 0}
+    - target: {fileID: 8308763075787205353, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
 --- !u!4 &145960909 stripped
@@ -3134,6 +3154,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hell_FireEmitter
       objectReference: {fileID: 0}
+    - target: {fileID: 8308763075787205353, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
 --- !u!1001 &178799995
@@ -3338,6 +3362,10 @@ PrefabInstance:
     - target: {fileID: 7516045497086380860, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
       propertyPath: m_Name
       value: Hell_FireEmitter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8308763075787205353, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
@@ -4076,6 +4104,10 @@ PrefabInstance:
     - target: {fileID: 7516045497086380860, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
       propertyPath: m_Name
       value: Hell_FireEmitter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8308763075787205353, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
@@ -5244,6 +5276,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hell_FireEmitter
       objectReference: {fileID: 0}
+    - target: {fileID: 8308763075787205353, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
 --- !u!1001 &272392297
@@ -5965,6 +6001,10 @@ PrefabInstance:
     - target: {fileID: 7516045497086380860, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
       propertyPath: m_Name
       value: Hell_FireEmitter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8308763075787205353, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
@@ -6762,6 +6802,10 @@ PrefabInstance:
     - target: {fileID: 7516045497086380860, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
       propertyPath: m_Name
       value: Hell_FireEmitter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8308763075787205353, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
@@ -8265,6 +8309,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hell_FireEmitter
       objectReference: {fileID: 0}
+    - target: {fileID: 8308763075787205353, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
 --- !u!4 &446362459 stripped
@@ -8596,7 +8644,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 592632235694328402, guid: 64c87851c61834d8fbce30f29df6f087, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.369322
+      value: -19.370878
       objectReference: {fileID: 0}
     - target: {fileID: 592632235694328402, guid: 64c87851c61834d8fbce30f29df6f087, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8604,7 +8652,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 592632235694328402, guid: 64c87851c61834d8fbce30f29df6f087, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -22.639599
+      value: -22.638042
       objectReference: {fileID: 0}
     - target: {fileID: 592632235694328402, guid: 64c87851c61834d8fbce30f29df6f087, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8863,6 +8911,10 @@ PrefabInstance:
     - target: {fileID: 7516045497086380860, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
       propertyPath: m_Name
       value: Hell_FireEmitter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8308763075787205353, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
@@ -9143,6 +9195,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hell_FireEmitter
       objectReference: {fileID: 0}
+    - target: {fileID: 8308763075787205353, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
 --- !u!4 &500137990 stripped
@@ -9204,6 +9260,10 @@ PrefabInstance:
     - target: {fileID: 7516045497086380860, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
       propertyPath: m_Name
       value: Hell_FireEmitter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8308763075787205353, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
@@ -16022,6 +16082,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hell_FireEmitter
       objectReference: {fileID: 0}
+    - target: {fileID: 8308763075787205353, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
 --- !u!1001 &855281750
@@ -19369,6 +19433,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hell_FireEmitter
       objectReference: {fileID: 0}
+    - target: {fileID: 8308763075787205353, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
 --- !u!1001 &1047401191
@@ -19915,6 +19983,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hell_FireEmitter
       objectReference: {fileID: 0}
+    - target: {fileID: 8308763075787205353, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
 --- !u!1001 &1064351998
@@ -20119,6 +20191,10 @@ PrefabInstance:
     - target: {fileID: 7516045497086380860, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
       propertyPath: m_Name
       value: Hell_FireEmitter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8308763075787205353, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
@@ -20546,6 +20622,10 @@ PrefabInstance:
     - target: {fileID: 7516045497086380860, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
       propertyPath: m_Name
       value: Hell_FireEmitter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8308763075787205353, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
@@ -26471,6 +26551,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hell_FireEmitter
       objectReference: {fileID: 0}
+    - target: {fileID: 8308763075787205353, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
 --- !u!4 &1393671714 stripped
@@ -26907,6 +26991,10 @@ PrefabInstance:
     - target: {fileID: 7516045497086380860, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
       propertyPath: m_Name
       value: Hell_FireEmitter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8308763075787205353, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
@@ -28021,6 +28109,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hell_FireEmitter
       objectReference: {fileID: 0}
+    - target: {fileID: 8308763075787205353, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
 --- !u!1001 &1483067636
@@ -28447,6 +28539,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hell_FireEmitter
       objectReference: {fileID: 0}
+    - target: {fileID: 8308763075787205353, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
 --- !u!1001 &1494967194
@@ -28794,6 +28890,10 @@ PrefabInstance:
     - target: {fileID: 7516045497086380860, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
       propertyPath: m_Name
       value: Hell_FireEmitter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8308763075787205353, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
@@ -35683,6 +35783,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hell_FireEmitter
       objectReference: {fileID: 0}
+    - target: {fileID: 8308763075787205353, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
 --- !u!1001 &1906990519
@@ -36252,6 +36356,10 @@ PrefabInstance:
     - target: {fileID: 7516045497086380860, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
       propertyPath: m_Name
       value: Hell_FireEmitter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8308763075787205353, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
@@ -38621,6 +38729,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hell_FireEmitter
       objectReference: {fileID: 0}
+    - target: {fileID: 8308763075787205353, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
 --- !u!1001 &2045712056
@@ -38826,6 +38938,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hell_FireEmitter
       objectReference: {fileID: 0}
+    - target: {fileID: 8308763075787205353, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
 --- !u!1001 &2051365670
@@ -38951,6 +39067,10 @@ PrefabInstance:
     - target: {fileID: 7516045497086380860, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
       propertyPath: m_Name
       value: Hell_FireEmitter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8308763075787205353, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
@@ -39510,6 +39630,10 @@ PrefabInstance:
     - target: {fileID: 7516045497086380860, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
       propertyPath: m_Name
       value: Hell_FireEmitter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8308763075787205353, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96cdaa73592a7914395e3e2e1a1dad61, type: 3}
