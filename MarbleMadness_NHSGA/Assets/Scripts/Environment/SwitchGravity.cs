@@ -18,7 +18,8 @@ public class SwitchGravity : MonoBehaviour
         
     }
 
-    void OnTriggerEnter(Collider col)
+    //requires kinematic rigidbody
+    void OnCollisionEnter(Collision col)
     {
         if(col.gameObject.CompareTag("Player")) {
             gravityDirectionToSwitchTo = (col.contacts[0].normal).normalized * -1;

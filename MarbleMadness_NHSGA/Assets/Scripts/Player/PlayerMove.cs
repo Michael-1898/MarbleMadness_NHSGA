@@ -33,7 +33,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] float gravityMultiplier;
     private bool gravityOn = true;
     [SerializeField] GameObject container;
-    private Vector3 gravityDir;
+    private Vector3 gravityDir = new Vector3(0, -1, 0);
 
     //FX
     [SerializeField] GameObject dizzyFX;
@@ -88,7 +88,7 @@ public class PlayerMove : MonoBehaviour
 
         //gravity
         if(gravityOn) {
-            rb.AddForce(-cam.transform.right * gravity * gravityMultiplier, ForceMode.Acceleration);
+            rb.AddForce(gravityDir * gravity * gravityMultiplier, ForceMode.Acceleration);
         }
     }
 
