@@ -91,17 +91,11 @@ public class PlayerMove : MonoBehaviour
         
         
         if(numOfColliders > 0) {
-            marbleRoll.volume = rb.velocity.magnitude/topSpeed;
-        }
-
-        if(rb.velocity.magnitude > 2f && numOfColliders > 0 && !rollSoundPlaying) {
-            //marbleRoll.Play();
-            rollSoundPlaying = true;
-        }
-
-        if((rb.velocity.magnitude < 2f || numOfColliders < 1) && rollSoundPlaying) {
-            //marbleRoll.Stop();
-            rollSoundPlaying = false;
+            if(!rollSoundPlaying) {
+                marbleRoll.Play();
+                rollSoundPlaying = true;
+            }
+            marbleRoll.volume = rb.velocity.magnitude/(topSpeed+1);
         }
 
         rb.velocity = Vector3.ClampMagnitude(rb.velocity, topSpeed);
@@ -135,6 +129,7 @@ public class PlayerMove : MonoBehaviour
             {
                 Invoke("GoalReached", 1);
                 hasBeenInGoal = true;
+                marbleRoll.Stop();
             }
             else GoalReached();
         }
