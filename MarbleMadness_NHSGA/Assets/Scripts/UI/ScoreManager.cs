@@ -9,7 +9,7 @@ public class ScoreManager : MonoBehaviour
     GameObject player;
     public GameObject timer;
     public GameObject scoreTxt;
-    public int score;
+    public static int score;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,8 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreTxt.GetComponent<TMP_Text>().text = "<mspace=21pxem>Score: " + score;
+        scoreTxt.GetComponent<TMP_Text>().text = "<mspace=21pxem>Score: " + score.ToString();
+        print(score);
     }
 
     void SpeedScore()
@@ -30,7 +31,7 @@ public class ScoreManager : MonoBehaviour
         UpdateScore(Mathf.FloorToInt(magnitude * 10));
     }
 
-    void UpdateScore(int added)
+    public void UpdateScore(int added)
     {
         var uiTimer = timer.GetComponent<UITimer>();
         if (!uiTimer.gameIsOver && uiTimer.playerReady)
@@ -38,4 +39,4 @@ public class ScoreManager : MonoBehaviour
             score += added;
         }
     }
-}
+ }

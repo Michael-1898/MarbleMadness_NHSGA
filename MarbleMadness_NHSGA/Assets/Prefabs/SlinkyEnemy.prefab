@@ -199,6 +199,7 @@ GameObject:
   - component: {fileID: 783740515514981279}
   - component: {fileID: 4293633780484785741}
   - component: {fileID: 5356986045541255380}
+  - component: {fileID: 5712215606434305669}
   m_Layer: 0
   m_Name: Slinky
   m_TagString: enemy
@@ -397,6 +398,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5712215606434305669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6681740015331242520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85ac3cb8d9f9d4bbca1f17cc2400d630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: slinky
 --- !u!1 &7116265122620948809
 GameObject:
   m_ObjectHideFlags: 0

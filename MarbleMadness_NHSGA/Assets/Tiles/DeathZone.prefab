@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf3d26c400ca50b4f93d9619cd297558, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 8879502444656628467, guid: 5e19282f231920944924c9fb58ad2baf, type: 3}
   marbleBreak: {fileID: 1790556137979522054}
 --- !u!54 &-4616945879515001403
 Rigidbody:
