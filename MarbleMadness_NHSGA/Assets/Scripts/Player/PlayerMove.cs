@@ -105,8 +105,6 @@ public class PlayerMove : MonoBehaviour
         }
 
         rb.velocity = Vector3.ClampMagnitude(rb.velocity, topSpeed);
-
-        print(gravityDir);
     }
 
     void FixedUpdate()
