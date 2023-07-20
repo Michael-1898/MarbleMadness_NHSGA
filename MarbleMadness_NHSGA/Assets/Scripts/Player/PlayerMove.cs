@@ -144,8 +144,9 @@ public class PlayerMove : MonoBehaviour
             gameObject.GetComponent<Rigidbody>().useGravity = false;
         }
 
-        if(!collision.gameObject.CompareTag("Player") && !collision.gameObject.CompareTag("ramp") && !collision.gameObject.CompareTag("ground") && !collision.gameObject.CompareTag("goal") && !collision.gameObject.CompareTag("DeathZone")) {
+        if(!collision.gameObject.CompareTag("Player") && !collision.gameObject.CompareTag("ramp") && !collision.gameObject.CompareTag("ground") && !collision.gameObject.CompareTag("goal") && !collision.gameObject.CompareTag("DeathZone") && !collision.gameObject.CompareTag("enemy")) {
             collisionSound.Play();
+            print("collider with wal");
         }
     }
 
