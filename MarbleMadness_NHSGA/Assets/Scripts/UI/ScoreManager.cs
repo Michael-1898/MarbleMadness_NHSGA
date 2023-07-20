@@ -21,8 +21,7 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreTxt.GetComponent<TMP_Text>().text = "<mspace=21pxem>Score: " + score.ToString();
-        print(score);
+        scoreTxt.GetComponent<TMP_Text>().text = "<mspace=21pxem>Score: " + score.ToString();]
     }
 
     void SpeedScore()
