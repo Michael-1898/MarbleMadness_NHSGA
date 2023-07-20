@@ -23,6 +23,6 @@ public class ScoreManager : MonoBehaviour
 
     void SpeedScore()
     {
-        
+        score += Mathf.FloorToInt(player.GetComponent<Rigidbody>().velocity.magnitude * 10);
     }
 }
