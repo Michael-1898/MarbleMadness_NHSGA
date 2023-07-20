@@ -148,8 +148,6 @@ public class PlayerMove : MonoBehaviour
         && !collision.gameObject.CompareTag("goal") && !collision.gameObject.CompareTag("DeathZone") && !collision.gameObject.CompareTag("enemy")
         && collision.gameObject.transform.position.y + collision.transform.localScale.y >= transform.position.y) {
             collisionSound.Play();
-            print("collider with wal");
-            print(collision.gameObject.name);
         }
     }
 
