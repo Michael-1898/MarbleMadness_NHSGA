@@ -10,7 +10,6 @@ public class ScoreManager : MonoBehaviour
     public GameObject timer;
     public GameObject scoreTxt;
     public static int score;
-    public bool scoreShouldProbablyStartScoringNowYeahOk = false;
     public bool hasBooledBefore = false;
 
     // Start is called before the first frame update
@@ -34,12 +33,14 @@ public class ScoreManager : MonoBehaviour
 
     public void UpdateScore(int added)
     {
+        print("baba booey");
         if (!hasBooledBefore) hasBooledBefore = true;
         else
         {
             var uiTimer = timer.GetComponent<UITimer>();
-            if (!uiTimer.gameIsOver && scoreShouldProbablyStartScoringNowYeahOk)
+            if (!uiTimer.gameIsOver)
             {
+                print("ok");
                 score += added;
             }
         }
