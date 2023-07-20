@@ -59,12 +59,22 @@ public class PlayerMove : MonoBehaviour
         // moveDirection = new Vector3(moveDirection.x, 0, moveDirection.z); //stop move direction from movign player upward
 
         //mouse movement
-        moveRawInput = Input.mousePosition;
-        Vector3 ballPosition = cam.WorldToScreenPoint(transform.position);
-        moveRawInput.x -= ballPosition.x;
-        moveRawInput.y -= ballPosition.y;
-        moveDirection = new Vector3(moveRawInput.x, 0, moveRawInput.y); //stop move direction from movign player upward
-        moveDirection = cam.transform.TransformDirection(moveDirection);
+        if(gravityDir == new Vector3(0, -1, 0)) {
+            moveRawInput = Input.mousePosition;
+            Vector3 ballPosition = cam.WorldToScreenPoint(transform.position);
+            moveRawInput.x -= ballPosition.x;
+            moveRawInput.y -= ballPosition.y;
+            moveDirection = new Vector3(moveRawInput.x, 0, moveRawInput.y); //stop move direction from movign player upward
+            moveDirection = cam.transform.TransformDirection(moveDirection);
+        } else if(gravityDir == new Vector3(0, 0, 1)) {
+            moveRawInput = Input.mousePosition;
+            Vector3 ballPosition = cam.WorldToScreenPoint(transform.position);
+            moveRawInput.x -= ballPosition.x;
+            moveRawInput.y -= ballPosition.y;
+            moveDirection = new Vector3(moveRawInput.x, moveRawInput.y, 0); //stop move direction from movign player upward
+            moveDirection = cam.transform.TransformDirection(moveDirection);
+        }
+        
         
         if(numOfColliders > 0) {
             marbleRoll.volume = rb.velocity.magnitude/topSpeed;
@@ -235,5 +245,10 @@ public class PlayerMove : MonoBehaviour
     public void SetGravity(Vector3 direction)
     {
         gravityDir = direction;
+    }
+
+    public Vector3 GetGravity()
+    {
+        return gravityDir;
     }
 }

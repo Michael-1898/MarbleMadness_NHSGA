@@ -36,7 +36,14 @@ public class CheckpointManager : MonoBehaviour
                 checkpointCounter = 0;
             }
 
-            checkpoint.transform.position = new Vector3(col.gameObject.transform.position.x, col.gameObject.transform.position.y + (col.gameObject.transform.localScale.y) + 0.5f, col.gameObject.transform.position.z);
+            if(player.GetComponent<PlayerMove>().GetGravity() == new Vector3(0, -1, 0)) {
+                checkpoint.transform.position = new Vector3(col.gameObject.transform.position.x, col.gameObject.transform.position.y + (col.gameObject.transform.localScale.y) + 0.5f, col.gameObject.transform.position.z);
+            } else if(player.GetComponent<PlayerMove>().GetGravity() == new Vector3(0, 0, 1)) {
+                checkpoint.transform.position = new Vector3(col.gameObject.transform.position.x, col.gameObject.transform.position.y, col.gameObject.transform.position.z - col.gameObject.transform.localScale.z - 0.5f);
+            } /*else if(player.GetComponent<PlayerMove>().GetGravity() == new Vector3(0, 0, 1)) {
+                checkpoint.transform.position = new Vector3(col.gameObject.transform.position.x, col.gameObject.transform.position.y + (col.gameObject.transform.localScale.y) + 0.5f, col.gameObject.transform.position.z);
+            }*/
+            
         }
     }
 
