@@ -65,7 +65,9 @@ public class PlayerMove : MonoBehaviour
         moveDirection = new Vector3(moveRawInput.x, 0, moveRawInput.y); //stop move direction from movign player upward
         moveDirection = cam.transform.TransformDirection(moveDirection);
         
-        marbleRoll.volume = rb.velocity.magnitude/topSpeed;
+        if(numOfColliders > 0) {
+            marbleRoll.volume = rb.velocity.magnitude/topSpeed;
+        }
 
         if(rb.velocity.magnitude > 2f && numOfColliders > 0 && !rollSoundPlaying) {
             //marbleRoll.Play();
