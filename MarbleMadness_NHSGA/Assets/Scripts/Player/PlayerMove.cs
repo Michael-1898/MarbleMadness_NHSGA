@@ -152,10 +152,9 @@ public class PlayerMove : MonoBehaviour
                     Instantiate(dizzyFX, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
                 }
                 else if (distance > 3f) {
-                    print("test");
-                    var scoreManager = canvas.transform.GetChild(3).gameObject.GetComponent<ScoreManager>();
-                    if (scoreManager == null) print("is null");
-                    scoreManager.UpdateScore(-100);
+                    var thing = canvas.transform.GetChild(3).gameObject.GetComponent<ScoreManager>();
+                    print("i should probably do this, thing: " + thing.scoreCanStartScoringYeah);
+                    thing.UpdateScore(-100);
 
                     //play break sound
                     breakSound.Play();

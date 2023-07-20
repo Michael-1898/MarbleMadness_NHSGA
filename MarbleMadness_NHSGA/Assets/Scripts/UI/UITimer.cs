@@ -23,7 +23,7 @@ public class UITimer : MonoBehaviour
     //player enabling
     private GameObject player;
     private Vector3 playerOrigin;
-    private bool playerHasMoved = false;
+    private bool playerHasMoved;
     private float startTimer;
     public bool playerReady = false;
 
@@ -40,11 +40,13 @@ public class UITimer : MonoBehaviour
     {
         gameOverDisplay.SetActive(false);
         player = GameObject.FindWithTag("Player");
+        playerHasMoved = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if(player.GetComponent<PlayerMove>().hasBeenInGoal == true && !gameIsOver) {
             gameIsOver = true;
             winSound.Play();
