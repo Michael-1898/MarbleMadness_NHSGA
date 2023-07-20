@@ -25,7 +25,7 @@ public class UITimer : MonoBehaviour
     private Vector3 playerOrigin;
     private bool playerHasMoved = false;
     private float startTimer;
-    private bool playerReady = false;
+    public bool playerReady = false;
 
     //sound
     [SerializeField] AudioSource fillTimer;
