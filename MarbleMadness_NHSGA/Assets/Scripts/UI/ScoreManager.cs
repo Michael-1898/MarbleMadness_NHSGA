@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
 
     GameObject player;
+    public GameObject timer;
+    public GameObject scoreTxt;
     public int score;
 
     // Start is called before the first frame update
@@ -18,11 +21,20 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        scoreTxt.GetComponent<TMP_Text>().text = "<mspace=21pxem>Score: " + score;
     }
 
     void SpeedScore()
     {
-        score += Mathf.FloorToInt(player.GetComponent<Rigidbody>().velocity.magnitude * 10);
+        float magnitude = player.GetComponent<Rigidbody>().velocity.magnitude;
+        UpdateScore(Mathf.FloorToInt(magnitude * 10));
+    }
+
+    void UpdateScore(int added)
+    {
+        if (!timer.GetComponent<UITimer>().gameIsOver)
+        {
+            score += added;
+        }
     }
 }
