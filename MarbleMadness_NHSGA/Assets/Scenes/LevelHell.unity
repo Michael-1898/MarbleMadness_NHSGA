@@ -6648,15 +6648,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 592632235694328402, guid: 64c87851c61834d8fbce30f29df6f087, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.36751
+      value: -21.451275
       objectReference: {fileID: 0}
     - target: {fileID: 592632235694328402, guid: 64c87851c61834d8fbce30f29df6f087, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 36.670498
+      value: 36.615627
       objectReference: {fileID: 0}
     - target: {fileID: 592632235694328402, guid: 64c87851c61834d8fbce30f29df6f087, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -18.319147
+      value: -18.280182
       objectReference: {fileID: 0}
     - target: {fileID: 592632235694328402, guid: 64c87851c61834d8fbce30f29df6f087, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6696,15 +6696,15 @@ PrefabInstance:
       objectReference: {fileID: 960048830}
     - target: {fileID: 592632235773124749, guid: 64c87851c61834d8fbce30f29df6f087, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.001385114
+      value: -0.0014161342
       objectReference: {fileID: 0}
     - target: {fileID: 592632235773124749, guid: 64c87851c61834d8fbce30f29df6f087, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0010220194
+      value: -0.001021345
       objectReference: {fileID: 0}
     - target: {fileID: 592632235773124749, guid: 64c87851c61834d8fbce30f29df6f087, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.00000017002458
+      value: 0.0000009979412
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64c87851c61834d8fbce30f29df6f087, type: 3}
@@ -15312,6 +15312,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4907041738932748721, guid: 5e19282f231920944924c9fb58ad2baf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8879502444656628467, guid: 5e19282f231920944924c9fb58ad2baf, type: 3}
       propertyPath: m_Name
       value: Canvas
