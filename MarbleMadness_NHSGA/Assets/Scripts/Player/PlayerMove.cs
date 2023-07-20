@@ -9,6 +9,7 @@ public class PlayerMove : MonoBehaviour
     //components
     [SerializeField] Camera cam;
     [SerializeField] Rigidbody rb;
+    public GameObject canvas;
 
     //sound
     [SerializeField] AudioSource marbleRoll;
@@ -127,6 +128,11 @@ public class PlayerMove : MonoBehaviour
                     Instantiate(dizzyFX, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
                 }
                 else if (distance > 3f) {
+                    print("test");
+                    var scoreManager = canvas.transform.GetChild(3).gameObject.GetComponent<ScoreManager>();
+                    if (scoreManager == null) print("is null");
+                    scoreManager.UpdateScore(-100);
+
                     //play break sound
                     breakSound.Play();
 
@@ -145,7 +151,6 @@ public class PlayerMove : MonoBehaviour
             gravityOn = false;
             gameObject.GetComponent<Rigidbody>().useGravity = false;
         }
-
         if(!collision.gameObject.CompareTag("Player") && !collision.gameObject.CompareTag("ramp") && !collision.gameObject.CompareTag("ground") 
         && !collision.gameObject.CompareTag("goal") && !collision.gameObject.CompareTag("DeathZone") && !collision.gameObject.CompareTag("enemy")
         && collision.gameObject.transform.position.y + collision.transform.localScale.y >= transform.position.y) {

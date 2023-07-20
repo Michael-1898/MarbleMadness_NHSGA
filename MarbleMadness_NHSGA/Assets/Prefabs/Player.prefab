@@ -137,6 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   rb: {fileID: 7713469700085993340}
+  canvas: {fileID: 8879502444656628467, guid: 5e19282f231920944924c9fb58ad2baf, type: 3}
   marbleRoll: {fileID: 4410036344936897381}
   breakSound: {fileID: 8268946151957866445}
   dizzySound: {fileID: 2490560347440393055}
@@ -824,7 +825,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: {fileID: 0}
   scoreTxt: {fileID: 0}
-  score: 0
 --- !u!1 &5662828303346833058
 GameObject:
   m_ObjectHideFlags: 0
