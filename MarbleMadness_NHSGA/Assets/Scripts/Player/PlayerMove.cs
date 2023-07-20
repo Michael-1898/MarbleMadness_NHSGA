@@ -153,7 +153,6 @@ public class PlayerMove : MonoBehaviour
                 }
                 else if (distance > 3f) {
                     var thing = canvas.transform.GetChild(3).gameObject.GetComponent<ScoreManager>();
-                    print("i should probably do this, thing: " + thing.scoreCanStartScoringYeah);
                     thing.UpdateScore(-100);
 
                     //play break sound
@@ -243,6 +242,11 @@ public class PlayerMove : MonoBehaviour
         moveForce = 0;
 
         winDisplay.SetActive(true);
+
+        var timerManager = canvas.transform.GetChild(1).gameObject.GetComponent<UITimer>();
+        var scoreManager = canvas.transform.GetChild(3).gameObject.GetComponent<ScoreManager>();
+        scoreManager.UpdateScore(5000);
+        scoreManager.UpdateScore(100 * Mathf.FloorToInt(timerManager.GetTimer()));
     }
 
     void Dizzynt()
