@@ -236,4 +236,9 @@ public class PlayerMove : MonoBehaviour
             rb.AddForce(-container.transform.right * gravity * gravityMultiplier, ForceMode.Acceleration);
         }
     }
+
+    private void SetGravity(int direction)
+    {
+        gravityDir = direction;
+    }
 }
