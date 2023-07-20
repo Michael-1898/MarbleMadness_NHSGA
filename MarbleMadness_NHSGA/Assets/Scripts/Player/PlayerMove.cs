@@ -33,7 +33,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] float gravityMultiplier;
     private bool gravityOn = true;
     [SerializeField] GameObject container;
-    private int gravityDir = 3;
+    private int gravityDir = 1;
 
     //FX
     [SerializeField] GameObject dizzyFX;
@@ -225,7 +225,7 @@ public class PlayerMove : MonoBehaviour
         }
 
         if(gravityDir == 2) {
-            rb.AddForce(container.transform.right * gravity * gravityMultiplier, ForceMode.Acceleration);
+            rb.AddForce(cam.transform.right * gravity * gravityMultiplier, ForceMode.Acceleration);
         }
 
         if(gravityDir == 3) {
@@ -233,7 +233,7 @@ public class PlayerMove : MonoBehaviour
         }
         
         if(gravityDir == 4) {
-            rb.AddForce(-container.transform.right * gravity * gravityMultiplier, ForceMode.Acceleration);
+            rb.AddForce(-cam.transform.right * gravity * gravityMultiplier, ForceMode.Acceleration);
         }
     }
 
