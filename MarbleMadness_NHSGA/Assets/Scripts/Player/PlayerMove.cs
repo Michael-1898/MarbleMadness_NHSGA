@@ -105,6 +105,8 @@ public class PlayerMove : MonoBehaviour
         }
 
         rb.velocity = Vector3.ClampMagnitude(rb.velocity, topSpeed);
+
+        print(gravityDir);
     }
 
     void FixedUpdate()
@@ -144,7 +146,16 @@ public class PlayerMove : MonoBehaviour
             numOfColliders += 1;
             if (numOfColliders == 1)
             {
-                distance = yOnExit - gameObject.transform.position.y;
+                if(gravityDir == new Vector3(0, -1, 0)) {
+                    distance = yOnExit - gameObject.transform.position.y;
+                } else if(gravityDir == new Vector3(0, 0, 1)) {
+                    distance = yOnExit + gameObject.transform.position.z;
+                } else if(gravityDir == new Vector3(1, 0, 0)) {
+                    distance = yOnExit + gameObject.transform.position.x;
+                } else if(gravityDir == new Vector3(-1, 0, 0)) {
+                    distance = yOnExit - gameObject.transform.position.x;
+                }
+                
                 if (distance > 1.4f && distance < 3f) {
                     dizzySound.Play();
                     isDizzy = true;
@@ -153,6 +164,7 @@ public class PlayerMove : MonoBehaviour
                 }
                 else if (distance > 3f) {
                     var thing = canvas.transform.GetChild(3).gameObject.GetComponent<ScoreManager>();
+                    //print("i should probably do this, thing: " + thing.scoreCanStartScoringYeah);
                     thing.UpdateScore(-100);
 
                     //play break sound
@@ -165,7 +177,13 @@ public class PlayerMove : MonoBehaviour
                     fallSound.Play();
                 }
             }
-            yOnExit = gameObject.transform.position.y;
+            if(gravityDir == new Vector3(0, -1, 0)) {
+                yOnExit = gameObject.transform.position.y;
+            } else if(gravityDir == new Vector3(0, 0, 1)) {
+                yOnExit = gameObject.transform.position.z;
+            } else if(gravityDir == new Vector3(1, 0, 0) || gravityDir == new Vector3(-1, 0, 0)) {
+                yOnExit = gameObject.transform.position.x;
+            } 
         }
 
         if (collision.gameObject.tag == "ramp")
