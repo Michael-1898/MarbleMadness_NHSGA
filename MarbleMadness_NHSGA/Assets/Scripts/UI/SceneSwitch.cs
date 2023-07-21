@@ -19,6 +19,9 @@ public class SceneSwitch : MonoBehaviour
 
     public void MoveToScene(int sceneID)
     {
+        if(sceneID == 1 && !SceneManager.GetActiveScene().name.Equals("MainMenu")) {
+            GameObject.Find("Canvas").transform.GetChild(3).gameObject.GetComponent<ScoreManager>().ClearScore();
+        }
         SceneManager.LoadScene(sceneID);
     }
 }

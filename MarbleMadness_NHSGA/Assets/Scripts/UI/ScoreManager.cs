@@ -43,4 +43,9 @@ public class ScoreManager : MonoBehaviour
             }
         }
     }
+
+    public void ClearScore()
+    {
+        score = 0;
+    }
  }
