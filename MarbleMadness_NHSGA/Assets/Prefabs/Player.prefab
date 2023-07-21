@@ -143,7 +143,7 @@ MonoBehaviour:
   dizzySound: {fileID: 2490560347440393055}
   fallSound: {fileID: 3577033115177778670}
   collisionSound: {fileID: 5259112221253422565}
-  moveForce: 0.0035
+  moveForce: 0.0015
   hasBeenInGoal: 0
   topSpeed: 7
   canMove: 0

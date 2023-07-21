@@ -19279,14 +19279,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8879502445495992453, guid: 5e19282f231920944924c9fb58ad2baf, type: 3}
+      propertyPath: m_text
+      value: You Win!
+      objectReference: {fileID: 0}
     - target: {fileID: 8879502446292381843, guid: 5e19282f231920944924c9fb58ad2baf, type: 3}
       propertyPath: m_Volume
-      value: 0.32
+      value: 0.42
       objectReference: {fileID: 0}
     - target: {fileID: 8879502446292381843, guid: 5e19282f231920944924c9fb58ad2baf, type: 3}
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 4ace3fd45c8c8664ab94b9eb8a5c1978, type: 3}
+    - target: {fileID: 8879502446395425672, guid: 5e19282f231920944924c9fb58ad2baf, type: 3}
+      propertyPath: m_text
+      value: (click to return to main menu)
+      objectReference: {fileID: 0}
     - target: {fileID: 8879502446663565651, guid: 5e19282f231920944924c9fb58ad2baf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 0
