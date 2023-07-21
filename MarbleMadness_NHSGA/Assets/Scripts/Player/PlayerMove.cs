@@ -90,12 +90,17 @@ public class PlayerMove : MonoBehaviour
         }
         
         
-        if(numOfColliders > 0) {
+        if(numOfColliders > 0 && canMove) {
             if(!rollSoundPlaying) {
                 marbleRoll.Play();
                 rollSoundPlaying = true;
             }
             marbleRoll.volume = rb.velocity.magnitude/(topSpeed+1.5f);
+        }
+
+        if(!canMove) {
+            marbleRoll.Stop();
+            rollSoundPlaying = false;
         }
 
         rb.velocity = Vector3.ClampMagnitude(rb.velocity, topSpeed);
